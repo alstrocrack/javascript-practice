@@ -19,6 +19,10 @@
   "homepage": "https://github.com/yuto-1220/javascript-practice#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
+    "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0"
+  },
+  "dependencies": {
+    "gulp-uglify": "^3.0.2"
   }
 }
