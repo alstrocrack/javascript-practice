@@ -1,34 +1,42 @@
 'use strict';
 
 // gulp設定部分
-const gulp = require("gulp");
+const { src, dest, watch} = require("gulp");
 const sass = require("gulp-sass");
-// const rename = require("gulp-rename");
-// const uglify = require("gulp-uglify");
+const pug = require("gulp-pug");
 
-gulp.task("default", function(){
-    return gulp.watch("src/styles/style.scss", function(){
-        return (
-            gulp
-                .src("src/styles/style.scss")
-                .pipe(
-                    sass({
-                    outputStyle: "expanded"
-                    })
-                    .on("error", sass.logError)
-                )
-                .pipe(gulp.dest("dist/styles"))
-        )
-    })
-})
+// 以下コンパイル部分
+// Sassをコンパイルする
+const compileSass = () =>
+   src("src/styles/*.scss")
+   .pipe(
+       sass({
+           outputStyle: "expanded"
+       })
+       .on("error", sass.logError)
+   )
+   .pipe(dest("dist/styles"));
 
+// Sassファイルを監視
+const watchSassFiles = () => 
+  watch("src/styles/*.scss", compileSass);
 
-// gulp.task("js-minify", function() {
-//     gulp.src('src/scripts/*.js')
-//         .pipe(uglify())
-//         .pipe(rename({
-//             extname: '.min.js'
-//         }))
-//         .pipe(gulp.dest("dist/scripts/"));
-// });
+// pugをコンパイルする
+const compilePug = () =>
+   src("src/*.pug")
+   .pipe(
+       pug({
+           pretty: true
+       })
+       .on("error", pug.logError)
+   )
+   .pipe(dest("dist"));
 
+// pugファイルを監視
+const watchPugFiles = () =>
+   watch("src/*.pug", compilePug);
+
+// npx gulpで実行される関数
+exports.default = () =>
+   watchSassFiles();
+   watchPugFiles();
