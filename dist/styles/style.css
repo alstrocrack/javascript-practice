@@ -78,6 +78,10 @@ a {
   color: #fff;
 }
 
+.main .contents {
+  margin-bottom: 150px;
+}
+
 .main .contents-core {
   width: 100%;
 }
@@ -112,6 +116,10 @@ a {
 
 .main .contents-each_text-desc {
   font-size: 16px;
+}
+
+.main .carousel {
+  margin-bottom: 150px;
 }
 
 .main .carousel .swiper-container {
