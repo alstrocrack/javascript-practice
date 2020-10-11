@@ -5,10 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>practice</title>
     <link rel="stylesheet" href="styles/style.css"/>
+    <link rel="stylesheet" href="../libs/swiper/swiper.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
   </head>
   <body>
-    <h1>hello world!</h1>
-    <script src="gsap/gsap.min.js"></script>
-    <script src="dist/scripts/main.js"></script>
+    <header class="header">
+      <div class="header-left">
+        <h3>MyPortfolio</h3>
+      </div>
+      <div class="header-right">
+        <ul class="header-list">
+          <li class="header-list_item"><a href="#">
+               About</a></li>
+          <li class="header-list_item"><a href="#">
+               work</a></li>
+          <li class="header-list_item"><a href="#">
+               contact</a></li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <div class="kv">
+        <div class="kv-img"><img src="/images/b-kv-image.jpg" alt=""/></div>
+        <div class="kv-text"> 
+          <h2>MyPortfolio</h2>
+        </div>
+      </div>
+      <div class="contents content-width">
+        <h4 class="title">CONTENT1<span class="small-title">slideshow</span></h4>
+        <div class="contents-core">
+          <div class="contents-each">
+            <div class="contents-each_image"><img src="/images/b-contents-img_01.jpg" alt=""/></div>
+            <div class="contents-each_text">
+              <h5 class="contents-each_text-title">Aries</h5>
+              <p class="contents-each_text-dsec">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.</p>
+            </div>
+          </div>
+          <div class="contents-each">
+            <div class="contents-each_image"><img src="/images/b-contents-img_02.jpg" alt=""/></div>
+            <div class="contents-each_text">
+              <h5 class="contents-each_text-title">Taurus</h5>
+              <p class="contents-each_text-dsec">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.</p>
+            </div>
+          </div>
+          <div class="contents-each">
+            <div class="contents-each_image"><img src="/images/b-contents-img_03.jpg" alt=""/></div>
+            <div class="contents-each_text">
+              <h5 class="contents-each_text-title">Gemini</h5>
+              <p class="contents-each_text-dsec">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel content-width">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="swiper-slide_image"><img src="/images/c-carousel_01.jpg" alt=""/></div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-slide_image"><img src="/images/c-carousel_02.jpg" alt=""/></div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-slide_image"><img src="/images/c-carousel_03.jpg" alt=""/></div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </main>
+    <script src="../libs/gsap/gsap.min.js"></script>
+    <script src="../libs/swiper/swiper.min.js"></script>
+    <script src="scripts/libs/CCarousel.js"></script>
+    <script src="scripts/main.js"></script>
   </body>
 </html>

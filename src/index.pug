@@ -5,9 +5,72 @@ html(lang="en")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         title practice
         link(rel="stylesheet" href="styles/style.css")
+        link(rel="stylesheet" href="../libs/swiper/swiper.min.css")
+        link(href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet")
     body
-        h1 hello world!
+        header.header
+            .header-left
+                h3 MyPortfolio
+            .header-right
+                ul.header-list
+                    li.header-list_item
+                        a(href="#") 
+                            | About
+                    li.header-list_item
+                        a(href="#") 
+                            | work
+                    li.header-list_item
+                        a(href="#") 
+                            | contact
+        main.main
+            .kv
+                .kv-img
+                    img(src="/images/b-kv-image.jpg", alt="")
+                .kv-text 
+                    h2 MyPortfolio
+            .contents.content-width
+                h4.title
+                    | CONTENT1
+                    span.small-title
+                        | slideshow
+                .contents-core
+                    .contents-each
+                        .contents-each_image
+                            img(src="/images/b-contents-img_01.jpg", alt="")
+                        .contents-each_text
+                           h5.contents-each_text-title Aries
+                           p.contents-each_text-dsec Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.
+                    .contents-each
+                        .contents-each_image
+                            img(src="/images/b-contents-img_02.jpg", alt="")
+                        .contents-each_text
+                           h5.contents-each_text-title Taurus
+                           p.contents-each_text-dsec Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.
+                    .contents-each
+                        .contents-each_image
+                            img(src="/images/b-contents-img_03.jpg", alt="")
+                        .contents-each_text
+                           h5.contents-each_text-title Gemini
+                           p.contents-each_text-dsec Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.
+            .carousel.content-width
+                .swiper-container
+                    .swiper-wrapper
+                        .swiper-slide
+                           .swiper-slide_image
+                                img(src="/images/c-carousel_01.jpg", alt="") 
+                        .swiper-slide
+                            .swiper-slide_image
+                                img(src="/images/c-carousel_02.jpg", alt="") 
+                        .swiper-slide
+                            .swiper-slide_image
+                                img(src="/images/c-carousel_03.jpg", alt="") 
+                    .swiper-pagination
+                    .swiper-button-prev
+                    .swiper-button-next
+                    //- .swiper-scrollbar
         //- ここから読み込み部分
-        script(src = "gsap/gsap.min.js")
-        script(src = "dist/scripts/main.js")
+        script(src = "../libs/gsap/gsap.min.js")
+        script(src = "../libs/swiper/swiper.min.js")
+        script(src = "scripts/libs/CCarousel.js")
+        script(src = "scripts/main.js")
         //- 読み込み部分ここまで
