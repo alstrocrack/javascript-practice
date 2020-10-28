@@ -30,6 +30,7 @@ const pugOptions = {
     baseDir: paths.root
 };
 
+// pug
 gulp.task("pug", function(done){
     return gulp.src(paths.pug)
         .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>")}))
