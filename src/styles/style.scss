@@ -31,6 +31,8 @@ a{
     width: 900px;
     margin: 0 auto;
 }
+
+$font-color: rgb(223, 86, 86);
 //--------------- common -------------------------
 
 
@@ -40,12 +42,35 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: beige;
+    background-color: #fff;
+    &-title{
+        display: flex;
+        align-items: center;
+        opacity: 0;
+        transform: translateY(30px);
+        &_image{
+            width: 50px;
+            & > img{
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        &_text{
+            color: $font-color;
+            font-size: 30px;
+            margin-left: 5px;
+        }
+    }
     &-list{
         display: flex;
         list-style: none;
         &_item{
-            margin-right: 20px;
+            margin-right: 40px;
+            & > a{
+                color: $font-color;
+                font-weight: 600;
+                font-size: 20px;
+            }
             &:last-child{
                 margin-right: 0;
             }

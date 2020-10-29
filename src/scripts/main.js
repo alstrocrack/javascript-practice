@@ -1,10 +1,12 @@
 window.addEventListener('load', () => {
-    console.log('ページが完全に読み込まれました');
+    // console.log('ページが完全に読み込まれました');
+    headerShow();
   });
 
-const btn = document.querySelector(".btn");
-btn.addEventListener('click', () => {
-    gsap.to(btn, .3, {
-        scale: 3,
-    })
-})
+const siteTitle = document.querySelector(".header-title");
+function headerShow(){
+    gsap.to(siteTitle, .3, {
+        x: -40,
+        ease: Power4.easeOut,
+    });
+}

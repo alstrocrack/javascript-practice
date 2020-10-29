@@ -37,7 +37,29 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: beige;
+  background-color: #fff;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.header-title_image {
+  width: 50px;
+}
+
+.header-title_image > img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.header-title_text {
+  color: #df5656;
+  font-size: 30px;
+  margin-left: 5px;
 }
 
 .header-list {
@@ -46,7 +68,13 @@ a {
 }
 
 .header-list_item {
-  margin-right: 20px;
+  margin-right: 40px;
+}
+
+.header-list_item > a {
+  color: #df5656;
+  font-weight: 600;
+  font-size: 20px;
 }
 
 .header-list_item:last-child {
