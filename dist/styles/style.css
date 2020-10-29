@@ -142,3 +142,42 @@ a {
   height: 100%;
   object-fit: cover;
 }
+
+.main .accordion {
+  margin-bottom: 150px;
+}
+
+.main .accordion-trigger {
+  width: 70vw;
+  height: 80px;
+  background-color: #e8e8e8;
+  border-radius: 20px;
+  box-shadow: 0 10px 0 #000000;
+  cursor: pointer;
+}
+
+.main .accordion-trigger_text {
+  text-align: center;
+  line-height: 80px;
+  font-size: 25px;
+  color: #fff;
+}
+
+.main .accordion-inner {
+  display: none;
+}
+
+.main .btns {
+  margin-bottom: 150px;
+}
+
+.main .btns .btn-hover {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 100px;
+  background-color: teal;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 100px;
+}

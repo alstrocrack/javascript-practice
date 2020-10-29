@@ -56,6 +56,7 @@ a{
 
 //--------------- main -------------------------
 .main{
+    //--------------- KV -------------------------
     .kv{
         position: relative;
         margin-bottom: 130px;
@@ -77,6 +78,7 @@ a{
             color: #fff;
         }
     }
+    //--------------- contents -------------------------
     .contents{
         margin-bottom: 150px;
         &-core{
@@ -108,6 +110,7 @@ a{
             }
         }
     }
+    //--------------- carousel -------------------------
     .carousel{
         margin-bottom: 150px;
         .swiper-container {
@@ -126,6 +129,41 @@ a{
                     object-fit: cover;
                 }
             }
+        }
+    }
+    //--------------- accordion -------------------------
+    .accordion{
+        margin-bottom: 150px;
+        &-trigger{
+            width: 70vw;
+            height: 80px;
+            background-color: #e8e8e8;
+            border-radius: 20px;
+            box-shadow: 0 10px 0 #000000;
+            cursor: pointer;
+            &_text{
+                text-align: center;
+                line-height: 80px;
+                font-size: 25px;
+                color: #fff;
+            }
+        }
+        &-inner{
+            display: none;
+        }
+    }
+    //--------------- btns -------------------------
+    .btns{
+        margin-bottom: 150px;
+        .btn-hover{
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            height: 100px;
+            background-color: teal;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 100px;
         }
     }
 }
