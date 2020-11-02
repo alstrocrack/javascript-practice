@@ -63,8 +63,19 @@ a {
 }
 
 .header-list {
-  display: flex;
   list-style: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .header-list {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .header-list {
+    display: none;
+  }
 }
 
 .header-list_item {
@@ -79,6 +90,29 @@ a {
 
 .header-list_item:last-child {
   margin-right: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .header-list_humberger {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .header-list_humberger {
+    display: block;
+  }
+}
+
+.header-list_humberger > span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: #df5656;
+}
+
+.header-list_humberger > span:not(:last-child) {
+  margin-bottom: 5px;
 }
 
 .main .kv {

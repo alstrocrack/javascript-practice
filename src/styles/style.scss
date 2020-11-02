@@ -32,7 +32,27 @@ a{
     margin: 0 auto;
 }
 
-$font-color: rgb(223, 86, 86);
+$theme-color: rgb(223, 86, 86);
+$breakpoint: 768px;
+
+/// @group media query
+$media-sp: 'only screen and (max-width: #{$breakpoint - 1px})';
+/// @group media query
+$media-pc: 'only screen and (min-width: #{$breakpoint})';
+
+/// @group media query
+@mixin media-sp{
+    @media #{$media-sp}{
+        @content;
+    }
+}
+
+/// @group media query
+@mixin media-pc{
+    @media #{$media-pc}{
+        @content;
+    }
+}
 //--------------- common -------------------------
 
 
@@ -56,23 +76,45 @@ $font-color: rgb(223, 86, 86);
             }
         }
         &_text{
-            color: $font-color;
+            color: $theme-color;
             font-size: 30px;
             margin-left: 5px;
         }
     }
     &-list{
-        display: flex;
         list-style: none;
+        @include media-pc() {
+            display: flex;
+        }
+        @include media-sp() {
+            display: none;
+        }
         &_item{
             margin-right: 40px;
             & > a{
-                color: $font-color;
+                color: $theme-color;
                 font-weight: 600;
                 font-size: 20px;
             }
             &:last-child{
                 margin-right: 0;
+            }
+        }
+        &_humberger{
+            @include media-pc() {
+                display: none;
+            }
+            @include media-sp() {
+                display: block;
+            }
+            & > span{
+                display: block;
+                width: 30px;
+                height: 3px;
+                background-color: $theme-color;
+                &:not(:last-child){
+                    margin-bottom: 5px;
+                }
             }
         }
     }
