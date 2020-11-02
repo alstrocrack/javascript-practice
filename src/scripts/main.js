@@ -5,8 +5,9 @@ window.addEventListener('load', () => {
 
 const siteTitle = document.querySelector(".header-title");
 function headerShow(){
-    gsap.to(siteTitle, .3, {
-        x: -40,
+    gsap.to(siteTitle, 3, {
+        y: 0,
         ease: Power4.easeOut,
+        opacity: 1,
     });
 }

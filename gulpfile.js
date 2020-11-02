@@ -4,6 +4,7 @@ const gulp = require("gulp");
 const browserSync = require("browser-sync").create();
 const sass = require("gulp-sass");
 const pug = require("gulp-pug");
+const uglify = require("gulp-uglify");
 const plumber = require("gulp-plumber");
 const notify = require("gulp-notify");
 
@@ -12,7 +13,9 @@ const  paths = {
     "sass": "src/styles/style.scss",
     "css": "dist/styles/",
     "pug": "src/index.pug",
-    "html": "dist/"
+    "html": "dist/",
+    "js": "src/scripts/main.js",
+    "jsMin": "dist/scripts/"
 }
 
 // sass
@@ -39,6 +42,14 @@ gulp.task("pug", function(done){
     done();
 })
 
+//js uglify
+gulp.task("js", () => {
+    gulp.src(paths.js)
+        .pipe(plumber())
+        .pipe(uglify())
+        .pipe(gulp.dest(paths.jsMin));
+});
+
 // browserSync
 gulp.task("browsersync", function(){
     return browserSync.init({
@@ -59,6 +70,7 @@ gulp.task("reload", function(done){
 gulp.task("watch", function(done){
     watch([paths.sass], series("sass", "reload"));
     watch([paths.pug], series("pug", "reload"));
+    watch([paths.js], series("js", "reload"));
     done();
 });
 
