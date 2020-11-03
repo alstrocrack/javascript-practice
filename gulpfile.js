@@ -5,6 +5,7 @@ const browserSync = require("browser-sync").create();
 const sass = require("gulp-sass");
 const pug = require("gulp-pug");
 const uglify = require("gulp-uglify");
+const babel = require("gulp-babel");
 const plumber = require("gulp-plumber");
 const notify = require("gulp-notify");
 
@@ -43,8 +44,11 @@ gulp.task("pug", function(done){
 })
 
 //js uglify
-gulp.task("js", () => {
-    gulp.src(paths.js)
+gulp.task("js", function() {
+    return gulp.src(paths.js)
+        .pipe(babel({
+            "presets": ["@babel/preset-env"]
+        }))
         .pipe(plumber())
         .pipe(uglify())
         .pipe(gulp.dest(paths.jsMin));

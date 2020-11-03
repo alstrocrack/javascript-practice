@@ -1,0 +1,1 @@
+"use strict";window.addEventListener("load",function(){headerShow()});var siteTitle=document.querySelector(".header-title");function headerShow(){gsap.to(siteTitle,3,{y:0,ease:Power4.easeOut,opacity:1})}
