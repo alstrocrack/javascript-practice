@@ -18,9 +18,12 @@
   },
   "homepage": "https://github.com/yuto-1220/javascript-practice#readme",
   "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
     "browser-sync": "^2.26.12",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
     "gulp-notify": "^3.2.0",
     "gulp-plumber": "^1.2.1",
     "gulp-pug": "^4.0.1",
