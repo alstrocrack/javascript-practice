@@ -8,6 +8,12 @@ const uglify = require("gulp-uglify");
 const babel = require("gulp-babel");
 const plumber = require("gulp-plumber");
 const notify = require("gulp-notify");
+const changed = require("gulp-changed");
+const imagemin = require("gulp-imagemin");
+const imageminJpg = require("imagemin-jpeg-recompress");
+const imageminPng = require("imagemin-pngquant");
+const imageminGif = require("imagemin-gifsicle");
+const svgmin = require("gulp-svgmin");
 
 const  paths = {
     "root": "dist/",
@@ -16,7 +22,9 @@ const  paths = {
     "pug": "src/index.pug",
     "html": "dist/",
     "js": "src/scripts/main.js",
-    "jsMin": "dist/scripts/"
+    "jsMin": "dist/scripts/",
+    "image": "src/images/*.+(jpg|jpeg|png|gif|svg)",
+    "imageMin": "dist/assets/images/"
 }
 
 // sass
@@ -54,6 +62,32 @@ gulp.task("js", function() {
         .pipe(gulp.dest(paths.jsMin));
 });
 
+// image minify
+gulp.task('imagemin', function(done){
+    gulp.src(paths.image)
+        .pipe(changed(paths.imageMin))
+        .pipe(imagemin([
+            imageminPng(),
+            imageminJpg(),
+            imageminGif({
+                interlaced: false,
+                optimizationLevel: 3,
+                colors: 180
+            })
+        ]))
+        .pipe(gulp.dest(paths.imageMin));
+        done();
+});
+
+// svg minify
+gulp.task("svgmin", function(done){
+    gulp.src(paths.image, {allowEmpty: true})
+        .pipe(changed(paths.imageMin))
+        .pipe(svgmin())
+        .pipe(gulp.dest(paths.imageMin));
+    done();
+});
+
 // browserSync
 gulp.task("browsersync", function(){
     return browserSync.init({
@@ -79,3 +113,4 @@ gulp.task("watch", function(done){
 });
 
 gulp.task("default", parallel("watch", "browsersync"));
+gulp.task("publish", parallel("imagemin", "svgmin"));
