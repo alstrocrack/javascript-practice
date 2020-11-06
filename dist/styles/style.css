@@ -38,6 +38,13 @@ a {
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
+  border-bottom: 1px solid #ffb6c1;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
 
 .header-title {
@@ -118,6 +125,7 @@ a {
 .main .kv {
   position: relative;
   margin-bottom: 130px;
+  padding-top: 118px;
 }
 
 .main .kv-img {
