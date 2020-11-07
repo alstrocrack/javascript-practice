@@ -9,6 +9,11 @@
 - gulp
   - CLI version: 2.2.0
   - Local version: 4.0.2
+  
+## languages
+- HTML -> Pug
+- CSS -> Sass
+- JavaScript -> Javascript
 
 ## commands
 - `npx gulp`
