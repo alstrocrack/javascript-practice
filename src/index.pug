@@ -31,10 +31,19 @@ html(lang="en")
                     span
         main.main
             .kv
-                .kv-img
-                    img(src="assets/images/b-kv-image.jpg", alt="")
+                .kv-swiper-container
+                    .swiper-wrapper
+                        .swiper-slide
+                            .kv-img
+                                img(src="assets/images/b-kv-image.jpg", alt="")
+                        .swiper-slide
+                            .kv-img
+                                img(src="assets/images/b-kv-image2.jpg", alt="")
+                        .swiper-slide
+                            .kv-img
+                                img(src="assets/images/b-kv-image3.jpg", alt="")
                 .kv-text 
-                    h2 Site
+                    h2.kv-text_content Site
             .contents.content-width
                 h4.title
                     | CONTENT1
