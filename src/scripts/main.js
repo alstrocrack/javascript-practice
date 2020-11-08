@@ -94,9 +94,14 @@ const callback = function(entries, observer){
         } else {
             console.log('out view');
         }
-    })
+    });
 }
-const observer = new IntersectionObserver(callback); 
+const options = {
+    root: null, // 交差対象の親を指定
+    rootMargin: "0px", // 交差点の指定
+    threshold: 0, // 交差対象の発火場所
+}
+const observer = new IntersectionObserver(callback, options); 
 observer.observe(target);
 
 
