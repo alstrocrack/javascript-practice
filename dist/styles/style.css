@@ -168,6 +168,18 @@ a {
   justify-content: space-between;
 }
 
+.main .contents-each.js-scroll {
+  opacity: 0;
+}
+
+.main .contents-each:nth-of-type(2) .contents-each_image {
+  order: 2;
+}
+
+.main .contents-each:nth-of-type(2) .contents-each_text {
+  order: 1;
+}
+
 .main .contents-each:not(:last-child) {
   margin-bottom: 20px;
 }

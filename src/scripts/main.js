@@ -74,4 +74,30 @@ function KVinit(){
     });
 }
 
+// IntersectionObserver
+function contentshow(e){
+    gsap.to(e, {
+        duration: 1,
+        opacity: 1,
+        delay: 1,
+        ease: Power1.easeOut,
+        y: -20,
+    })
+}
+const target = document.querySelector('.js-scroll')
+const callback = function(entries, observer){
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            // console.log('inview');
+            contentshow(entry.target);
+            observer.unobserve(entry.target);
+        } else {
+            console.log('out view');
+        }
+    })
+}
+const observer = new IntersectionObserver(callback); 
+observer.observe(target);
+
+
 
