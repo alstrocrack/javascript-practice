@@ -122,6 +122,21 @@ a {
   margin-bottom: 5px;
 }
 
+.main #mouse-stalker {
+  pointer-events: none;
+  position: fixed;
+  top: -8px;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  background-color: #ffff80;
+  border-radius: 50%;
+  transform: translate(0, 0);
+  transition: transform 0.2s;
+  transition-timing-function: ease-out;
+  z-index: 999;
+}
+
 .main .kv {
   position: relative;
   margin-bottom: 130px;

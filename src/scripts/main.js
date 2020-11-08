@@ -2,7 +2,12 @@ window.addEventListener('load', () => {
     headerShow();
     kvShow();
     KVinit();
-  });
+});
+
+const stalker = document.getElementById("mouse-stalker");
+document.addEventListener('mousemove', function(e){
+    stalker.style.transform= 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
+})
 
 //   ヘッダーのフェードイン
 const siteTitle = document.querySelector(".header-title");
@@ -79,12 +84,12 @@ function contentshow(e){
     gsap.to(e, {
         duration: 1,
         opacity: 1,
-        delay: 1,
+        delay: .5,
         ease: Power1.easeOut,
         y: -20,
     })
 }
-const target = document.querySelector('.js-scroll')
+const targets = document.querySelectorAll('.js-scroll')
 const callback = function(entries, observer){
     entries.forEach(entry => {
         if(entry.isIntersecting){
@@ -92,7 +97,7 @@ const callback = function(entries, observer){
             contentshow(entry.target);
             observer.unobserve(entry.target);
         } else {
-            console.log('out view');
+            //
         }
     });
 }
@@ -102,7 +107,8 @@ const options = {
     threshold: 0, // 交差対象の発火場所
 }
 const observer = new IntersectionObserver(callback, options); 
-observer.observe(target);
+targets.forEach((target) => observer.observe(target));
+
 
 
 
