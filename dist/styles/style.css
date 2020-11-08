@@ -27,11 +27,6 @@ a {
   font-size: 20px;
 }
 
-.content-width {
-  width: 900px;
-  margin: 0 auto;
-}
-
 .header {
   padding: 30px 20px;
   display: flex;
@@ -169,34 +164,46 @@ a {
   color: #fff;
 }
 
-.main .contents {
-  margin-bottom: 150px;
+@media only screen and (min-width: 768px) {
+  .main .contents-core {
+    margin-bottom: 150px;
+    width: 100%;
+  }
 }
 
-.main .contents-core {
-  width: 100%;
-}
-
-.main .contents-each {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+@media only screen and (max-width: 767px) {
+  .main .contents-core {
+    width: 85%;
+    margin: 0 auto 150px;
+  }
 }
 
 .main .contents-each.js-scroll {
   opacity: 0;
 }
 
-.main .contents-each:nth-of-type(2) .contents-each_image {
-  order: 2;
-}
-
-.main .contents-each:nth-of-type(2) .contents-each_text {
-  order: 1;
-}
-
 .main .contents-each:not(:last-child) {
   margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .main .contents-each {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .main .contents-each:nth-of-type(2) .contents-each_image {
+    order: 2;
+  }
+  .main .contents-each:nth-of-type(2) .contents-each_text {
+    order: 1;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .main .contents-each {
+    display: block;
+  }
 }
 
 .main .contents-each_image {

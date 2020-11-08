@@ -74,6 +74,7 @@
 
 //--------------- main -------------------------
 .main{
+    //--------------- mouse stalker -------------------------
     #mouse-stalker{
         pointer-events: none;
         position: fixed;
@@ -118,27 +119,38 @@
     }
     //--------------- contents -------------------------
     .contents{
-        margin-bottom: 150px;
         &-core{
-            width: 100%;
+            @include media-pc{
+                margin-bottom: 150px;
+                width: 100%;
+            }
+            @include media-sp{
+                width: 85%;
+                margin: 0 auto 150px;
+            }
         }
         &-each{
             &.js-scroll{
                 opacity: 0;
             }
-            &:nth-of-type(2){
-                .contents-each_image{
-                    order: 2;
-                }
-                .contents-each_text{
-                    order: 1;
-                }
-            }
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
             &:not(:last-child){
                 margin-bottom: 20px;
+            }
+            @include media-pc{
+                &:nth-of-type(2){
+                    .contents-each_image{
+                        order: 2;
+                    }
+                    .contents-each_text{
+                        order: 1;
+                    }
+                }
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            @include media-sp{
+                display: block;
             }
             &_image{
                 width: 500px;

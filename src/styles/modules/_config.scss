@@ -28,8 +28,14 @@ a{
 }
 
 .content-width{
-    width: 900px;
-    margin: 0 auto;
+    @include media-pc{
+        width: 900px;
+        margin: 0 auto;
+    }
+    @include media-sp{
+        width: 85%;
+        margin: 0 auto;
+    }
 }
 
 $theme-color: rgb(223, 86, 86);
