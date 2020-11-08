@@ -7,106 +7,108 @@ html(lang="en")
         link(rel="stylesheet" href="styles/style.css")
         link(rel="stylesheet" href="assets/js/libs/swiper/swiper.min.css")
         link(href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet")
+        script(src="assets/js/libs/pace/pace.js")
     body
-        header.header
-            .header-left
-                a(href="#").header-title
-                    .header-title_image
-                        img(src="/assets/images/b-header-rogo.svg")
-                    h3.header-title_text Site
-            .header-right
-                ul.header-list
-                    li.header-list_item
-                        a(href="#").js-hover.js-hover01
-                            | About
-                    li.header-list_item
-                        a(href="#").js-hover.js-hover02
-                            | work
-                    li.header-list_item
-                        a(href="#").js-hover.js-hover03
-                            | contact
-                .header-list_humberger
-                    span
-                    span
-                    span
-        main.main
-            #mouse-stalker
-            .kv
-                .kv-swiper-container
-                    .swiper-wrapper
-                        .swiper-slide
-                            .kv-img
-                                img(src="assets/images/b-kv-image.jpg", alt="")
-                        .swiper-slide
-                            .kv-img
-                                img(src="assets/images/b-kv-image2.jpg", alt="")
-                        .swiper-slide
-                            .kv-img
-                                img(src="assets/images/b-kv-image3.jpg", alt="")
-                .kv-text 
-                    h2.kv-text_content Site
-            .contents.content-width
-                h4.title
-                    | CONTENT1
-                    span.small-title
-                        | slideshow
-                .contents-core
-                    .contents-each.js-scroll
-                        .contents-each_image
-                            img(src="assets/images/b-contents-img_01.jpg", alt="")
-                        .contents-each_text
-                           h5.contents-each_text-title Aries
-                           p.contents-each_text-dsec Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.
-                    .contents-each.js-scroll
-                        .contents-each_image
-                            img(src="assets/images/b-contents-img_02.jpg", alt="")
-                        .contents-each_text
-                           h5.contents-each_text-title Taurus
-                           p.contents-each_text-dsec Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.
-                    .contents-each.js-scroll
-                        .contents-each_image
-                            img(src="assets/images/b-contents-img_03.jpg", alt="")
-                        .contents-each_text
-                           h5.contents-each_text-title Gemini
-                           p.contents-each_text-dsec Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.
-            .carousel.content-width
-                h4.title
-                        | CONTENT2
+        #global-container
+            header.header
+                .header-left
+                    a(href="#").header-title
+                        .header-title_image
+                            img(src="/assets/images/b-header-rogo.svg")
+                        h3.header-title_text Site
+                .header-right
+                    ul.header-list
+                        li.header-list_item
+                            a(href="#").js-hover.js-hover01
+                                | About
+                        li.header-list_item
+                            a(href="#").js-hover.js-hover02
+                                | work
+                        li.header-list_item
+                            a(href="#").js-hover.js-hover03
+                                | contact
+                    .header-list_humberger
+                        span
+                        span
+                        span
+            main.main
+                #mouse-stalker
+                .kv
+                    .kv-swiper-container
+                        .swiper-wrapper
+                            .swiper-slide
+                                .kv-img
+                                    img(src="assets/images/b-kv-image.jpg", alt="")
+                            .swiper-slide
+                                .kv-img
+                                    img(src="assets/images/b-kv-image2.jpg", alt="")
+                            .swiper-slide
+                                .kv-img
+                                    img(src="assets/images/b-kv-image3.jpg", alt="")
+                    .kv-text 
+                        h2.kv-text_content Site
+                .contents.content-width
+                    h4.title
+                        | CONTENT1
                         span.small-title
-                            | carousel
-                .swiper-container
-                    .swiper-wrapper
-                        .swiper-slide
-                           .swiper-slide_image
-                                img(src="assets/images/c-carousel_01.jpg", alt="") 
-                        .swiper-slide
+                            | slideshow
+                    .contents-core
+                        .contents-each.js-scroll
+                            .contents-each_image
+                                img(src="assets/images/b-contents-img_01.jpg", alt="")
+                            .contents-each_text
+                            h5.contents-each_text-title Aries
+                            p.contents-each_text-dsec Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.
+                        .contents-each.js-scroll
+                            .contents-each_image
+                                img(src="assets/images/b-contents-img_02.jpg", alt="")
+                            .contents-each_text
+                            h5.contents-each_text-title Taurus
+                            p.contents-each_text-dsec Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.
+                        .contents-each.js-scroll
+                            .contents-each_image
+                                img(src="assets/images/b-contents-img_03.jpg", alt="")
+                            .contents-each_text
+                            h5.contents-each_text-title Gemini
+                            p.contents-each_text-dsec Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.
+                .carousel.content-width
+                    h4.title
+                            | CONTENT2
+                            span.small-title
+                                | carousel
+                    .swiper-container
+                        .swiper-wrapper
+                            .swiper-slide
                             .swiper-slide_image
-                                img(src="assets/images/c-carousel_02.jpg", alt="") 
-                        .swiper-slide
-                            .swiper-slide_image
-                                img(src="assets/images/c-carousel_03.jpg", alt="") 
-                    .swiper-pagination
-                    .swiper-button-prev
-                    .swiper-button-next
-                    //- .swiper-scrollbar
-            .accordion.content-width
-                h4.title
-                        | CONTENT3
-                        span.small-title
-                            | accordion
-                .accordion-trigger
-                    h5.accordion-trigger_text アコーディオン1
-                .accordion-inner
-                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ex at consequuntur fugit repudiandae perferendis iure vero provident. Ex error animi quas repudiandae molestiae quisquam voluptates illo beatae saepe ad.
-            .btns.content-width
-                h4.title
-                        | CONTENT4
-                        span.small-title
-                            | btn-action-area
-                btn.btn-hover HOVER
-        //- ここから読み込み部分
-        script(src = "assets/js/libs/gsap/gsap.min.js")
-        script(src = "assets/js/libs/swiper/swiper.min.js")
-        script(src = "scripts/libs/CCarousel.js")
-        script(src = "scripts/main.js")
-        //- 読み込み部分ここまで
+                                    img(src="assets/images/c-carousel_01.jpg", alt="") 
+                            .swiper-slide
+                                .swiper-slide_image
+                                    img(src="assets/images/c-carousel_02.jpg", alt="") 
+                            .swiper-slide
+                                .swiper-slide_image
+                                    img(src="assets/images/c-carousel_03.jpg", alt="") 
+                        .swiper-pagination
+                        .swiper-button-prev
+                        .swiper-button-next
+                        //- .swiper-scrollbar
+                .accordion.content-width
+                    h4.title
+                            | CONTENT3
+                            span.small-title
+                                | accordion
+                    .accordion-trigger
+                        h5.accordion-trigger_text アコーディオン1
+                    .accordion-inner
+                        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ex at consequuntur fugit repudiandae perferendis iure vero provident. Ex error animi quas repudiandae molestiae quisquam voluptates illo beatae saepe ad.
+                .btns.content-width
+                    h4.title
+                            | CONTENT4
+                            span.small-title
+                                | btn-action-area
+                    btn.btn-hover HOVER
+            //- ここから読み込み部分
+            script(src = "assets/js/libs/gsap/gsap.min.js")
+            script(src = "assets/js/libs/swiper/swiper.min.js")
+            script(src = "scripts/libs/CCarousel.js")
+            script(src = "scripts/main.js")
+            //- 読み込み部分ここまで
