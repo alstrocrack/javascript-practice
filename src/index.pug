@@ -57,20 +57,20 @@ html(lang="en")
                             .contents-each_image
                                 img(src="assets/images/b-contents-img_01.jpg", alt="")
                             .contents-each_text
-                            h5.contents-each_text-title Aries
-                            p.contents-each_text-dsec Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.
+                                h5.contents-each_text-title Aries
+                                p.contents-each_text-dsec Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.
                         .contents-each.js-scroll
                             .contents-each_image
                                 img(src="assets/images/b-contents-img_02.jpg", alt="")
                             .contents-each_text
-                            h5.contents-each_text-title Taurus
-                            p.contents-each_text-dsec Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.
+                                h5.contents-each_text-title Taurus
+                                p.contents-each_text-dsec Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.
                         .contents-each.js-scroll
                             .contents-each_image
                                 img(src="assets/images/b-contents-img_03.jpg", alt="")
                             .contents-each_text
-                            h5.contents-each_text-title Gemini
-                            p.contents-each_text-dsec Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.
+                                h5.contents-each_text-title Gemini
+                                p.contents-each_text-dsec Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rerum incidunt dicta magni fugit, ratione exercitationem ut velit laborum illum labore, suscipit dolores fuga repellat, cupiditate et soluta possimus earum.
                 .carousel.content-width
                     h4.title
                             | CONTENT2
@@ -79,18 +79,26 @@ html(lang="en")
                     .swiper-container
                         .swiper-wrapper
                             .swiper-slide
-                            .swiper-slide_image
-                                    img(src="assets/images/c-carousel_01.jpg", alt="") 
+                                .swiper-slide_image
+                                        img(src="assets/images/c-carousel_01.jpg", alt="") 
                             .swiper-slide
                                 .swiper-slide_image
                                     img(src="assets/images/c-carousel_02.jpg", alt="") 
                             .swiper-slide
                                 .swiper-slide_image
                                     img(src="assets/images/c-carousel_03.jpg", alt="") 
-                        .swiper-pagination
+                            .swiper-slide
+                                .swiper-slide_image
+                                    img(src="assets/images/c-carousel_04.jpg", alt="") 
+                            .swiper-slide
+                                .swiper-slide_image
+                                    img(src="assets/images/c-carousel_05.jpg", alt="") 
                         .swiper-button-prev
                         .swiper-button-next
-                        //- .swiper-scrollbar
+                    .swiper-pages
+                        .current-page-number 0
+                        .slash /
+                        .all-page-number 0
                 .accordion.content-width
                     h4.title
                             | CONTENT3

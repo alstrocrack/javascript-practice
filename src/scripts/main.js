@@ -4,10 +4,11 @@ window.addEventListener('load', () => {
     KVinit();
 });
 
-const stalker = document.getElementById("mouse-stalker");
-document.addEventListener('mousemove', function(e){
-    stalker.style.transform= 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
-})
+// mouse stalker
+// const stalker = document.getElementById("mouse-stalker");
+// document.addEventListener('mousemove', function(e){
+//     stalker.style.transform= 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
+// })
 
 //   ヘッダーのフェードイン
 const siteTitle = document.querySelector(".header-title");
@@ -108,6 +109,33 @@ const options = {
 }
 const observer = new IntersectionObserver(callback, options); 
 targets.forEach((target) => observer.observe(target));
+
+
+const pageList = [];
+pageList.push();
+let currentPageNumber = 0;
+// コンテンツ2 カルーセル
+const Carousel = new Swiper('.swiper-container', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+    speed: 600,
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    on: {
+        slideChange: () => {
+            if(currentPageNumber !== Carousel.realIndex){
+                currentPageNumber = Carousel.realIndex;
+            }
+        }
+    }
+});
+
+console.log(Carousel.realIndex);
+
 
 
 

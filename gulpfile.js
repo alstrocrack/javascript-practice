@@ -52,7 +52,7 @@ gulp.task("pug", function(done){
 })
 
 //js uglify
-gulp.task("js", function() {
+gulp.task("js", function(done) {
     return gulp.src(paths.js)
         .pipe(babel({
             "presets": ["@babel/preset-env"]
@@ -60,6 +60,7 @@ gulp.task("js", function() {
         .pipe(plumber())
         .pipe(uglify())
         .pipe(gulp.dest(paths.jsMin));
+    done();
 });
 
 // image minify

@@ -51,7 +51,7 @@ $media-pc: 'only screen and (min-width: #{$breakpoint})';
 
 .content-width{
     @include media-pc{
-        width: 900px;
+        width: 1080px;
         margin: 0 auto;
     }
     @include media-sp{
