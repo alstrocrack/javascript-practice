@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: none;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -364,6 +365,11 @@ a {
   margin-bottom: 150px;
 }
 
+.main .carousel .title {
+  width: 1080px;
+  margin: 0 auto 50px;
+}
+
 @media only screen and (min-width: 768px) {
   .main .carousel .swiper-container {
     width: 100%;
@@ -383,6 +389,10 @@ a {
   height: 100%;
 }
 
+.main .carousel .swiper-slide:not(.swiper-slide-active) {
+  opacity: 0.2;
+}
+
 .main .carousel .swiper-slide_image {
   width: 100%;
   height: 100%;
@@ -394,6 +404,71 @@ a {
   object-fit: cover;
 }
 
+.main .carousel .swiper-button-prev,
+.main .carousel .swiper-button-next {
+  background-color: #df5656;
+  transition: all 0.3s;
+}
+
+@media only screen and (min-width: 768px) {
+  .main .carousel .swiper-button-prev,
+  .main .carousel .swiper-button-next {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .main .carousel .swiper-button-prev,
+  .main .carousel .swiper-button-next {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+  }
+}
+
+.main .carousel .swiper-button-prev::after,
+.main .carousel .swiper-button-next::after {
+  color: #fff;
+}
+
+@media only screen and (max-width: 767px) {
+  .main .carousel .swiper-button-prev::after,
+  .main .carousel .swiper-button-next::after {
+    font-size: 20px;
+  }
+}
+
+.main .carousel .swiper-button-prev:hover,
+.main .carousel .swiper-button-next:hover {
+  opacity: 0.7;
+}
+
+@media only screen and (min-width: 768px) {
+  .main .carousel .swiper-button-prev {
+    margin-left: 100px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .main .carousel .swiper-button-prev {
+    margin-left: 5px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .main .carousel .swiper-button-next {
+    margin-right: 100px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .main .carousel .swiper-button-next {
+    margin-right: 5px;
+  }
+}
+
 .main .carousel .swiper-pages {
   display: flex;
   justify-content: center;
@@ -403,7 +478,23 @@ a {
 .main .carousel .swiper-pages .current-page-number,
 .main .carousel .swiper-pages .all-page-number,
 .main .carousel .swiper-pages .slash {
-  font-size: 25px;
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 768px) {
+  .main .carousel .swiper-pages .current-page-number,
+  .main .carousel .swiper-pages .all-page-number,
+  .main .carousel .swiper-pages .slash {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .main .carousel .swiper-pages .current-page-number,
+  .main .carousel .swiper-pages .all-page-number,
+  .main .carousel .swiper-pages .slash {
+    font-size: 20px;
+  }
 }
 
 .main .carousel .swiper-pages .current-page-number {

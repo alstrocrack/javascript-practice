@@ -293,6 +293,10 @@
     }
     //--------------- carousel -------------------------
     .carousel{
+        .title {
+            width: 1080px;
+            margin: 0 auto 50px;
+        }
         margin-bottom: 150px;
         .swiper-container {
             @include media-pc{
@@ -307,6 +311,9 @@
         .swiper-slide{
             width: 100%;
             height: 100%;
+            &:not(.swiper-slide-active){
+                opacity: 0.2;
+            }
             &_image{
                 width: 100%;
                 height: 100%;
@@ -317,6 +324,46 @@
                 }
             }
         }
+        .swiper-button-prev,
+        .swiper-button-next {
+            @include media-pc {
+                width: 80px;
+                height: 80px;
+                border-radius: 5px;
+            }
+            @include media-sp {
+                width: 40px;
+                height: 40px;
+                border-radius: 5px;
+            }
+            background-color: $theme-color;
+            transition: all 0.3s;
+            &::after{
+              color: #fff;  
+              @include media-sp {
+                font-size: 20px;
+            }
+            }
+            &:hover{
+                opacity: 0.7;
+            }
+        }
+        .swiper-button-prev {
+            @include media-pc {
+                margin-left: 100px;
+            }
+            @include media-sp {
+                margin-left: 5px;
+            }
+        }
+        .swiper-button-next {
+            @include media-pc {
+                margin-right: 100px;
+            }
+            @include media-sp {
+                margin-right: 5px;
+            }
+        }
         .swiper-pages{
             display: flex;
             justify-content: center;
@@ -324,7 +371,13 @@
             .current-page-number,
             .all-page-number,
             .slash{
-                font-size: 25px;
+                font-weight: 600;
+                @include media-pc {
+                    font-size: 25px;
+                }
+                @include media-sp {
+                    font-size: 20px;
+                }
             }
             .current-page-number{
                 margin-right: 5px;

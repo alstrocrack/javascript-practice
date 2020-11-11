@@ -111,30 +111,49 @@ const observer = new IntersectionObserver(callback, options);
 targets.forEach((target) => observer.observe(target));
 
 
-const pageList = [];
-pageList.push();
+// 全ページ数のセット
+const allSlides = document.querySelector('.all-page-number');
+const slides = document.querySelectorAll(".js-carousel");
+const slideBox = [];
+slides.forEach(slide => {
+    slideBox.push(slide);
+});
+function setCarousel(){
+    allSlides.textContent = slideBox.length;
+};
+setCarousel();
+
 let currentPageNumber = 0;
+let currentSlides = document.querySelector('.current-page-number');
+currentSlides.textContent = 1;
 // コンテンツ2 カルーセル
 const Carousel = new Swiper('.swiper-container', {
     // Optional parameters
     direction: 'horizontal',
     loop: true,
     speed: 600,
+    centeredSlides: true,
+    slidesPerView: 1,
+    spaceBetween: 50,
+    breakpoints: {
+        768: {
+            slidesPerView: 2,
+        }
+    },
     // Navigation arrows
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
     },
     on: {
         slideChange: () => {
             if(currentPageNumber !== Carousel.realIndex){
                 currentPageNumber = Carousel.realIndex;
             }
+            currentSlides.textContent = currentPageNumber + 1;
         }
     }
 });
-
-console.log(Carousel.realIndex);
 
 
 
