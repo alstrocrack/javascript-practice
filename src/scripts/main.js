@@ -5,10 +5,10 @@ window.addEventListener('load', () => {
 });
 
 // mouse stalker
-// const stalker = document.getElementById("mouse-stalker");
-// document.addEventListener('mousemove', function(e){
-//     stalker.style.transform= 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
-// })
+const stalker = document.getElementById("mouse-stalker");
+document.addEventListener('mousemove', function(e){
+    stalker.style.transform= 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
+});
 
 //   ヘッダーのフェードイン
 const siteTitle = document.querySelector(".header-title");
@@ -20,33 +20,6 @@ function headerShow(){
         opacity: 1,
     });
 }
-
-// メニューのホバー
-const headerMenu = document.querySelectorAll('.js-hover');
-headerMenu.forEach(e => {
-    e.addEventListener('mouseover', () => {
-        gsap.to(e, {
-            color: '#87cefa',
-            duration: 0.3,
-            ease: Power4.easeIn,
-            onStart: () => {
-                e.innerHTML = "click";
-            }
-        });
-    });
-    e.addEventListener('mouseleave', () => {
-        gsap.to(e, {
-            color: '#df5656',
-            duration: 0.3,
-            ease: Power4.easeIn,
-            onStart: () => {
-                e.innerHTML = "reverse";
-            }
-        });
-    });
-    console.log(e);
-});
-
 
 // KVのフェードイン
 const kvText = document.querySelector(".kv-text_content");
@@ -71,7 +44,9 @@ function KVinit(){
         loop: true,
         speed: 1000,
         centeredSlides: true,
-        effect: 'coverflow',
+        effect: 'fade',
+        allowTouchMove: false,
+        disableOnInteraction: false,
         autoplay:{
             delay: 7000,
             stopOnlastSlide: false,
