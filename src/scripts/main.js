@@ -155,6 +155,36 @@ const Carousel = new Swiper('.swiper-container', {
     }
 });
 
+const trigger = document.querySelector(".js-trigger");
+const draw = document.querySelector(".js-draw");
+let isOpen = false;
+gsap.set(draw, {
+     y: -30,
+     opacity: 0,
+    });
+trigger.addEventListener('click', () => {
+    if(!isOpen){
+        isOpen = true;
+        gsap.to(draw, {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            ease: Power4.easeInOut,
+        });
+    } else {
+        if(isOpen = false){
+            return;
+        };
+        isOpen = false;
+        gsap.to(draw, {
+            opacity: 0,
+            y: -30,
+            duration: 0.4,
+            ease: Power4.easeInOut,
+        });
+    }
+});
+
 
 
 

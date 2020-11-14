@@ -390,14 +390,24 @@
     //--------------- accordion -------------------------
     .accordion{
         margin-bottom: 150px;
+        width: 70vw;
         &-trigger{
-            width: 70vw;
+            width: 100%;
             height: 80px;
-            background-color: #e8e8e8;
-            border-radius: 20px;
-            box-shadow: 0 10px 0 #000000;
+            background-color: $theme-color;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid #eb9797;
+            &_icon{
+                width: 20px;
+                height: 20px;
+                object-fit: cover;
+            }
             &_text{
+                font-weight: 300;
                 text-align: center;
                 line-height: 80px;
                 font-size: 25px;
@@ -405,7 +415,10 @@
             }
         }
         &-inner{
-            display: none;
+            background-color: #fff;
+            border: 2px solid $theme-color;
+            width: 100%;
+            padding: 20px;
         }
     }
     //--------------- btns -------------------------

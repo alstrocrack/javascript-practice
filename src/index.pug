@@ -104,16 +104,30 @@ html(lang="en")
                             | CONTENT3
                             span.small-title
                                 | accordion
-                    .accordion-trigger
-                        h5.accordion-trigger_text アコーディオン1
-                    .accordion-inner
-                        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ex at consequuntur fugit repudiandae perferendis iure vero provident. Ex error animi quas repudiandae molestiae quisquam voluptates illo beatae saepe ad.
-                .btns.content-width
-                    h4.title
-                            | CONTENT4
-                            span.small-title
-                                | btn-action-area
-                    btn.btn-hover HOVER
+                    .accordion-item
+                        .accordion-trigger.js-trigger
+                            h5.accordion-trigger_text Leo
+                            .accordion-trigger_icon
+                                img(src="assets/images/b-plus_icon.svg", alt="", class="plus")
+                                //- img(src="assets/images/b-minus_icon.svg", alt="", class="minus")
+                        .accordion-inner.js-draw
+                            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ex at consequuntur fugit repudiandae perferendis iure vero provident. Ex error animi quas repudiandae molestiae quisquam voluptates illo beatae saepe ad.
+                    .accordion-item
+                        .accordion-trigger
+                            h5.accordion-trigger_text Virgo
+                            .accordion-trigger_icon
+                                img(src="assets/images/b-plus_icon.svg", alt="", class="plus")
+                                //- img(src="assets/images/b-minus_icon.svg", alt="", class="minus")
+                        .accordion-inner
+                            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ex at consequuntur fugit repudiandae perferendis iure vero provident. Ex error animi quas repudiandae molestiae quisquam voluptates illo beatae saepe ad.
+                    .accordion-item
+                        .accordion-trigger
+                            h5.accordion-trigger_text Libra
+                            .accordion-trigger_icon
+                                img(src="assets/images/b-plus_icon.svg", alt="", class="plus")
+                                //- img(src="assets/images/b-minus_icon.svg", alt="", class="minus")
+                        .accordion-inner
+                            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ex at consequuntur fugit repudiandae perferendis iure vero provident. Ex error animi quas repudiandae molestiae quisquam voluptates illo beatae saepe ad.
             //- ここから読み込み部分
             script(src = "assets/js/libs/gsap/gsap.min.js")
             script(src = "assets/js/libs/swiper/swiper.min.js")
