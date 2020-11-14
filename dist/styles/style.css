@@ -518,14 +518,34 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
   border-bottom: 1px solid #eb9797;
+  padding: 20px;
+}
+
+.main .accordion-trigger.open {
+  border-bottom: none;
 }
 
 .main .accordion-trigger_icon {
   width: 20px;
   height: 20px;
   object-fit: cover;
+}
+
+.main .accordion-trigger_icon.plus .plus-icon {
+  display: block !important;
+}
+
+.main .accordion-trigger_icon.plus .minus-icon {
+  display: none !important;
+}
+
+.main .accordion-trigger_icon.minus .plus-icon {
+  display: none !important;
+}
+
+.main .accordion-trigger_icon.minus .minus-icon {
+  display: block !important;
 }
 
 .main .accordion-trigger_text {
@@ -538,9 +558,14 @@ a {
 
 .main .accordion-inner {
   background-color: #fff;
-  border: 2px solid #df5656;
   width: 100%;
+  overflow: hidden;
+}
+
+.main .accordion-inner-text {
   padding: 20px;
+  border-left: 2px solid #df5656;
+  border-right: 2px solid #df5656;
 }
 
 .main .btns {

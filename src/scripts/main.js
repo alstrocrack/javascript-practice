@@ -157,9 +157,10 @@ const Carousel = new Swiper('.swiper-container', {
 
 const trigger = document.querySelector(".js-trigger");
 const draw = document.querySelector(".js-draw");
+const icon = document.querySelector(".accordion-trigger_icon");
 let isOpen = false;
 gsap.set(draw, {
-     y: -30,
+     height: 0,
      opacity: 0,
     });
 trigger.addEventListener('click', () => {
@@ -167,21 +168,24 @@ trigger.addEventListener('click', () => {
         isOpen = true;
         gsap.to(draw, {
             opacity: 1,
-            y: 0,
-            duration: 0.4,
-            ease: Power4.easeInOut,
+            height: 'auto',
+            duration: 0.6,
+            ease: Power4.easeOut,
         });
+        trigger.classList.add('open');
+        icon.classList.remove('plus');
+        icon.classList.add('minus');
     } else {
-        if(isOpen = false){
-            return;
-        };
         isOpen = false;
         gsap.to(draw, {
             opacity: 0,
-            y: -30,
-            duration: 0.4,
-            ease: Power4.easeInOut,
+            height: 0,
+            duration: 0.6,
+            ease: Power4.easeOut,
         });
+        trigger.classList.remove('open');
+        icon.classList.remove('minus');
+        icon.classList.add('plus');
     }
 });
 

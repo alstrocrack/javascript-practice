@@ -399,12 +399,31 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px;
             border-bottom: 1px solid #eb9797;
+            padding: 20px;
+            &.open{
+                border-bottom: none;
+            }
             &_icon{
                 width: 20px;
                 height: 20px;
                 object-fit: cover;
+                &.plus{
+                    .plus-icon{
+                        display: block !important;
+                    }
+                    .minus-icon{
+                        display: none !important;
+                    }
+                }
+                &.minus{
+                    .plus-icon{
+                        display: none !important;
+                    }
+                    .minus-icon{
+                        display: block !important;
+                    }
+                }
             }
             &_text{
                 font-weight: 300;
@@ -416,9 +435,13 @@
         }
         &-inner{
             background-color: #fff;
-            border: 2px solid $theme-color;
             width: 100%;
-            padding: 20px;
+            overflow: hidden;
+            &-text{
+                padding: 20px;
+                border-left: 2px solid $theme-color;
+                border-right: 2px solid $theme-color;
+            }
         }
     }
     //--------------- btns -------------------------
