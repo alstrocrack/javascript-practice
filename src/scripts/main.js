@@ -155,40 +155,54 @@ const Carousel = new Swiper('.swiper-container', {
     }
 });
 
-const trigger = document.querySelector(".js-trigger");
-const draw = document.querySelector(".js-draw");
-const icon = document.querySelector(".accordion-trigger_icon");
-let isOpen = false;
-gsap.set(draw, {
-     height: 0,
-     opacity: 0,
-    });
-trigger.addEventListener('click', () => {
-    if(!isOpen){
-        isOpen = true;
-        gsap.to(draw, {
+class Accordion {
+    constructor(el){
+        this.el = el;
+        this.trigger = document.querySelector(".js-trigger");
+        this.draw = document.querySelector(".js-draw");
+        this.icon = document.querySelector(".accordion-trigger_icon");
+        this.isOpen = false;
+    }
+    _init(){
+        gsap.set(this.draw, {
+             height: 0,
+             opacity: 0,
+        });
+        trigger.addEventListener('click', () => {
+            if(!isOpen){
+                this._open();
+            } else {
+                this._close();
+            }
+        });
+    };
+    _open(){
+        this.isOpen = true;
+        gsap.to(this.draw, {
             opacity: 1,
             height: 'auto',
             duration: 0.6,
             ease: Power4.easeOut,
         });
-        trigger.classList.add('open');
-        icon.classList.remove('plus');
-        icon.classList.add('minus');
-    } else {
-        isOpen = false;
-        gsap.to(draw, {
+        this.rigger.classList.add('open');
+        this.icon.classList.remove('plus');
+        this.icon.classList.add('minus');
+    };
+    _close(){
+        this.isOpen = false;
+        gsap.to(this.draw, {
             opacity: 0,
             height: 0,
             duration: 0.6,
             ease: Power4.easeOut,
         });
-        trigger.classList.remove('open');
-        icon.classList.remove('minus');
-        icon.classList.add('plus');
-    }
-});
+        this.trigger.classList.remove('open');
+        this.icon.classList.remove('minus');
+        this.icon.classList.add('plus');
+    };
+}
 
+const accordion = new Accordion();
 
 
 
