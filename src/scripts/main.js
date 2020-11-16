@@ -2,13 +2,14 @@ window.addEventListener('load', () => {
     headerShow();
     kvShow();
     KVinit();
+    webglinit();
 });
 
 // mouse stalker
-const stalker = document.getElementById("mouse-stalker");
-document.addEventListener('mousemove', function(e){
-    stalker.style.transform= 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
-});
+// const stalker = document.getElementById("mouse-stalker");
+// document.addEventListener('mousemove', function(e){
+//     stalker.style.transform= 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
+// });
 
 //   ヘッダーのフェードイン
 const siteTitle = document.querySelector(".header-title");
@@ -176,8 +177,64 @@ class Accordion {
         this.icon.classList.add('plus');
     };
 }
-
 const accordion = new Accordion();
+
+function webglinit() {
+
+    // サイズを指定
+    const width = 1080;
+    const height = 500;
+
+    // レンダラーを作成
+    const renderer = new THREE.WebGLRenderer({
+      canvas: document.querySelector('#webglCanvas')
+    });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(width, height);
+
+    // シーンを作成
+    const scene = new THREE.Scene();
+
+    // カメラを作成
+    const camera = new THREE.PerspectiveCamera(45, width / height);
+    camera.position.set(0, 0, +1000);
+
+    // 箱を作成
+    const geometry = new THREE.BoxGeometry(400, 400, 400);
+    const material = new THREE.MeshNormalMaterial();
+    const box = new THREE.Mesh(geometry, material);
+    scene.add(box);
+
+    tick();
+
+    // 毎フレーム時に実行されるループイベントです
+    function tick() {
+      box.rotation.y += 0.01;
+      renderer.render(scene, camera); // レンダリング
+
+      requestAnimationFrame(tick);
+    }
+}
+
+const gui = new dat.GUI();
+// const gui = new dat.GUI( { autoPlace: false } );
+// gui.domElement.id = 'gui';
+// const webGlContainer = document.querySelector('.webgl');
+// console.log(webGlContainer);
+// webGlContainer.appendChild('gui.domElement');
+
+// パラメーターの設定。初期値を指定
+class Parameters {
+    constructor() {
+        this.message = 'sample'
+        this.angle = 0
+        this.isVisible = true
+    }
+};
+
+// パラメーターのインスタンスを作成し、GUIに追加
+const param = new Parameters();
+gui.add(param, 'message');
 
 
 

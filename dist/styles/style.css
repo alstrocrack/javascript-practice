@@ -566,17 +566,12 @@ body {
   border-right: 2px solid #df5656;
 }
 
-.main .btns {
+.main .webgl {
   margin-bottom: 150px;
 }
 
-.main .btns .btn-hover {
-  display: block;
+.main .webgl_inner {
+  width: 1080px;
+  height: 500px;
   margin: 0 auto;
-  width: 200px;
-  height: 100px;
-  background-color: teal;
-  border-radius: 20px;
-  text-align: center;
-  line-height: 100px;
 }
