@@ -226,15 +226,23 @@ const gui = new dat.GUI();
 // パラメーターの設定。初期値を指定
 class Parameters {
     constructor() {
-        this.message = 'sample'
-        this.angle = 0
-        this.isVisible = true
+        this.message = 'sample';
+        this.angle = 0;
+        this.isVisible = true;
+        this.color = 'red';
+        this.width = 0;
+        this.height = 0;
     }
 };
 
 // パラメーターのインスタンスを作成し、GUIに追加
 const param = new Parameters();
 gui.add(param, 'message');
+gui.add(param, 'angle');
+gui.add(param, 'color');
+gui.add(param, 'isVisible');
+gui.add(param, 'width', 0, 100, 1);
+gui.add(param, 'height', 0, 100, 1);
 
 
 
