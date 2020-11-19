@@ -131,12 +131,16 @@ const Carousel = new Swiper('.swiper-container', {
     }
 });
 
+
+
+/////////////////////////////////////// アコーディオンクラスここから ////////////////////////////////////////////
+
 class Accordion {
     constructor(el){
         this.el = el;
-        this.trigger = document.querySelector(".js-trigger");
-        this.draw = document.querySelector(".js-draw");
-        this.icon = document.querySelector(".accordion-trigger_icon");
+        this.trigger = this.el.querySelector(".js-trigger");
+        this.draw = this.el.querySelector(".js-draw");
+        this.icon = this.trigger.querySelector(".accordion-trigger_icon");
         this.isOpen = false;
     }
     _init(){
@@ -177,7 +181,16 @@ class Accordion {
         this.icon.classList.add('plus');
     };
 }
-const accordion = new Accordion();
+
+acoInit();
+function acoInit(){
+    Array.from(document.querySelector('.js-accordion'), (e, i) => {
+        const item = new Accordion(e);
+        item._init();
+    })
+}
+
+/////////////////////////////////////// アコーディオンクラスここから ////////////////////////////////////////////
 
 function webglinit() {
 
