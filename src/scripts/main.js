@@ -2,7 +2,6 @@ window.addEventListener('load', () => {
     headerShow();
     kvShow();
     KVinit();
-    webglinit();
 });
 
 // mouse stalker
@@ -194,82 +193,62 @@ class Accordion {
     this.icon.classList.remove('minus');
     this.icon.classList.add('plus');
     };
-    }
+}
     
-    function acoInit(){
-    Array.from(document.querySelectorAll('.js-accordion'), (e, i) => {
-    const item = new Accordion(e);
-    item._init();
-    })
-    }
-    acoInit();
+function acoInit(){
+Array.from(document.querySelectorAll('.js-accordion'), (e, i) => {
+const item = new Accordion(e);
+item._init();
+})
+}
+acoInit();
     
-    /////////////////////////////////////// Accordion ///////////////////////////////
+/////////////////////////////////////// Accordion ///////////////////////////////
 
-function webglinit() {
 
-    // サイズを指定
-    const width = 1080;
-    const height = 500;
+/////////////////////////////////////// WebGL ///////////////////////////////////
+    // サイズの指定
+    const width = 960;
+    const height = 540;
 
     // レンダラーを作成
-    const renderer = new THREE.WebGLRenderer({
-      canvas: document.querySelector('#webglCanvas')
+    let renderer = new THREE.WebGLRenderer({
+        canvas: document.querySelector('#webglCanvas')
     });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(width, height);
 
     // シーンを作成
-    const scene = new THREE.Scene();
+    let scene = new THREE.Scene();
 
     // カメラを作成
-    const camera = new THREE.PerspectiveCamera(45, width / height);
+    let camera = new THREE.PerspectiveCamera( 45, width / height );
     camera.position.set(0, 0, +1000);
 
     // 箱を作成
-    const geometry = new THREE.BoxGeometry(400, 400, 400);
-    const material = new THREE.MeshNormalMaterial();
-    const box = new THREE.Mesh(geometry, material);
-    scene.add(box);
+    let geometry = new THREE.BoxGeometry(400, 400, 400);
+    let material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+    let cube = new THREE.Mesh( geometry, material );
+    scene.add( cube );
 
-    tick();
+    // 毎フレーム実行されるループイベント
+    let animate = function () {
+        requestAnimationFrame( animate );
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+        renderer.render( scene, camera );
+    };
+    animate();
 
-    // 毎フレーム時に実行されるループイベントです
-    function tick() {
-      box.rotation.y += 0.01;
-      renderer.render(scene, camera); // レンダリング
 
-      requestAnimationFrame(tick);
-    }
-}
-
-const gui = new dat.GUI();
-// const gui = new dat.GUI( { autoPlace: false } );
-// gui.domElement.id = 'gui';
-// const webGlContainer = document.querySelector('.webgl');
-// console.log(webGlContainer);
-// webGlContainer.appendChild('gui.domElement');
-
-// パラメーターの設定。初期値を指定
-class Parameters {
-    constructor() {
-        this.message = 'sample';
-        this.angle = 0;
-        this.isVisible = true;
-        this.color = 'red';
-        this.width = 0;
-        this.height = 0;
-    }
+let gui = new dat.GUI();
+let params = {
+    color: 0x00ff00,
+    scale: 1,
 };
-
-// パラメーターのインスタンスを作成し、GUIに追加
-const param = new Parameters();
-gui.add(param, 'message');
-gui.add(param, 'angle');
-gui.add(param, 'color');
-gui.add(param, 'isVisible');
-gui.add(param, 'width', 0, 100, 1);
-gui.add(param, 'height', 0, 100, 1);
+gui.addColor( params, 'color' ).onChange( function() { cube.material.color.set( params.color ); } );
+gui.add( params, 'scale' , 1.0, 4.0).onChange( function() { cube.scale.set( params.scale, params.scale, params.scale ); } );
+/////////////////////////////////////// WebGL ///////////////////////////////////
 
 
 

@@ -141,6 +141,7 @@ body {
 }
 
 .header {
+  display: none !important;
   padding: 30px 25px;
   display: flex;
   align-items: center;
