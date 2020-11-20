@@ -11,6 +11,7 @@ window.addEventListener('load', () => {
 //     stalker.style.transform= 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
 // });
 
+/////////////////////////////// header /////////////////////////////////////
 //   ヘッダーのフェードイン
 const siteTitle = document.querySelector(".header-title");
 function headerShow(){
@@ -21,6 +22,19 @@ function headerShow(){
         opacity: 1,
     });
 }
+
+// class headerDrawing {
+// constructor(){
+// this.header = document.querySelector('.js-header');
+// this.headerBottom = this.header.scrollTop + this.header.clientHeight;
+// this.kv = document.querySelector('.kv');
+// this.kvBottom = this.kv.scrollTop + this.kv.clientHeight;
+// console.log(this.headerBottom);
+// console.log(this.kvBottom);
+// }
+// }
+// const header = new headerDrawing();
+/////////////////////////////// header /////////////////////////////////////
 
 // KVのフェードイン
 const kvText = document.querySelector(".kv-text_content");
@@ -133,64 +147,64 @@ const Carousel = new Swiper('.swiper-container', {
 
 
 
-/////////////////////////////////////// アコーディオンクラスここから ////////////////////////////////////////////
+/////////////////////////////////////// Accordion ////////////////////////////////////////////
 
 class Accordion {
     constructor(el){
-        this.el = el;
-        this.trigger = this.el.querySelector(".js-trigger");
-        this.draw = this.el.querySelector(".js-draw");
-        this.icon = this.trigger.querySelector(".accordion-trigger_icon");
-        this.isOpen = false;
+    this.el = el;
+    this.trigger = this.el.querySelector('.js-trigger');
+    this.draw = this.el.querySelector('.js-draw');
+    this.icon = this.trigger.querySelector('.accordion-trigger_icon');
+    this.isOpen = false;
     }
     _init(){
-        gsap.set(this.draw, {
-             height: 0,
-             opacity: 0,
-        });
-        trigger.addEventListener('click', () => {
-            if(!isOpen){
-                this._open();
-            } else {
-                this._close();
-            }
-        });
+    gsap.set(this.draw, {
+    height: 0,
+    opacity: 0,
+    });
+    this.trigger.addEventListener('click', () => {
+    if(this.isOpen){
+    this._close();
+    } else {
+    this._open();
+    }
+    });
     };
     _open(){
-        this.isOpen = true;
-        gsap.to(this.draw, {
-            opacity: 1,
-            height: 'auto',
-            duration: 0.6,
-            ease: Power4.easeOut,
-        });
-        this.rigger.classList.add('open');
-        this.icon.classList.remove('plus');
-        this.icon.classList.add('minus');
+    this.isOpen = true;
+    gsap.to(this.draw, {
+    opacity: 1,
+    height: 'auto',
+    duration: 0.6,
+    ease: Power4.easeOut,
+    });
+    this.trigger.classList.add('open');
+    this.icon.classList.remove('plus');
+    this.icon.classList.add('minus');
     };
     _close(){
-        this.isOpen = false;
-        gsap.to(this.draw, {
-            opacity: 0,
-            height: 0,
-            duration: 0.6,
-            ease: Power4.easeOut,
-        });
-        this.trigger.classList.remove('open');
-        this.icon.classList.remove('minus');
-        this.icon.classList.add('plus');
+    this.isOpen = false;
+    gsap.to(this.draw, {
+    opacity: 0,
+    height: 0,
+    duration: 0.6,
+    ease: Power4.easeOut,
+    });
+    this.trigger.classList.remove('open');
+    this.icon.classList.remove('minus');
+    this.icon.classList.add('plus');
     };
-}
-
-acoInit();
-function acoInit(){
-    Array.from(document.querySelector('.js-accordion'), (e, i) => {
-        const item = new Accordion(e);
-        item._init();
+    }
+    
+    function acoInit(){
+    Array.from(document.querySelectorAll('.js-accordion'), (e, i) => {
+    const item = new Accordion(e);
+    item._init();
     })
-}
-
-/////////////////////////////////////// アコーディオンクラスここから ////////////////////////////////////////////
+    }
+    acoInit();
+    
+    /////////////////////////////////////// Accordion ///////////////////////////////
 
 function webglinit() {
 
