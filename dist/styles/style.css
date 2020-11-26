@@ -301,7 +301,7 @@ body {
     justify-content: space-between;
   }
   .main .contents-each:not(:last-child) {
-    margin-bottom: 20px;
+    margin-bottom: 150px;
   }
   .main .contents-each:nth-of-type(2) .contents-each_image {
     order: 2;

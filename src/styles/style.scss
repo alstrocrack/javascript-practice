@@ -248,7 +248,7 @@ body {
             }
             @include media-pc{
                 &:not(:last-child){
-                    margin-bottom: 20px;
+                    margin-bottom: 150px;
                 }
                 &:nth-of-type(2){
                     .contents-each_image{
