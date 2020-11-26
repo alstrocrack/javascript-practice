@@ -141,8 +141,7 @@ body {
 }
 
 .header {
-  display: none !important;
-  padding: 30px 25px;
+  padding: 10px 25px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -162,7 +161,7 @@ body {
 }
 
 .header-title_image {
-  width: 110px;
+  width: 50px;
 }
 
 .header-title_image > img {

@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
 // });
 
 /////////////////////////////// header /////////////////////////////////////
-//   ヘッダーのフェードイン
+//   ヘッダーのアイコンのフェードイン
 const siteTitle = document.querySelector(".header-title");
 function headerShow(){
     gsap.to(siteTitle, 3, {
@@ -22,17 +22,61 @@ function headerShow(){
     });
 }
 
-// class headerDrawing {
-// constructor(){
-// this.header = document.querySelector('.js-header');
-// this.headerBottom = this.header.scrollTop + this.header.clientHeight;
-// this.kv = document.querySelector('.kv');
-// this.kvBottom = this.kv.scrollTop + this.kv.clientHeight;
-// console.log(this.headerBottom);
-// console.log(this.kvBottom);
-// }
-// }
-// const header = new headerDrawing();
+const header = document.querySelector('.js-header');
+const headerRect = header.getBoundingClientRect();
+const headerContent = document.querySelectorAll('.header-list_item > a');
+const logoImg = document.querySelector('.outview-image');
+const logoImgInview = document.querySelector('.inview-image');
+
+const kv = document.querySelector('.kv');
+const kvRect = kv.getBoundingClientRect();
+
+let scrollBool = false;
+
+gsap.set(logoImg, {
+    display: 'block',
+});
+gsap.set(logoImgInview, {
+    display: 'none',
+    y: 0,
+});
+
+window.addEventListener('scroll', ()=> {
+    let headerBottom = headerRect.bottom + window.pageYOffset;
+    let kvBottom = kvRect.bottom;
+    console.log(headerBottom);
+    console.log(kvBottom);
+    if(headerBottom > kvBottom && !scrollBool) {
+        scrollBool = true;
+        console.log('outview!');
+        headerBgShow();
+    }
+});
+function headerBgShow() {
+    gsap.to(header, {
+        duration: 1.2,
+        ease: Power4.easeOut,
+        backgroundColor: '#fff',
+        boxShadow:"0px 0px 20px #000",
+    });
+    gsap.to(headerContent, {
+        duration: 1.2,
+        ease: Power4.easeOut,
+        color: 'rgb(223, 86, 86)',
+    });
+    gsap.to(logoImg, {
+        ease: Power4.easeOut,
+        display: 'none',
+        onComplete: () => {
+            gsap.to(logoImgInview, {
+                duration: 1,
+                ease: Power4.easeOut,
+                display: 'block',
+                y: 0,
+            });
+        }
+    });
+}
 /////////////////////////////// header /////////////////////////////////////
 
 // KVのフェードイン
