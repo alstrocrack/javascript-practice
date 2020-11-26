@@ -246,10 +246,10 @@ body {
             &.js-scroll{
                 opacity: 0;
             }
-            &:not(:last-child){
-                margin-bottom: 20px;
-            }
             @include media-pc{
+                &:not(:last-child){
+                    margin-bottom: 20px;
+                }
                 &:nth-of-type(2){
                     .contents-each_image{
                         order: 2;
@@ -264,7 +264,10 @@ body {
             }
             @include media-sp{
                 display: block;
-                text-align: center;
+                text-align: left;
+                &:not(:last-child){
+                    margin-bottom: 50px;
+                }
             }
             &_image{
                 @include media-pc{
@@ -272,22 +275,26 @@ body {
                 }
                 @include media-sp{
                     width: 100%;
+                    margin-bottom: 10px;
                 }
                 & > img{
                     width: 100%;
                     object-fit: cover;
+                    vertical-align: bottom;
+                    clip-path: inset(0 0 round 15px);
                 }
             }
             &_text{
                 @include media-pc{
-                    width: 300px;
+                    width: 500px;
                 }
                 @include media-sp{
                     width: 100%;
                 }
                 &-title{
                     margin-bottom: 15px;
-                    font-size: 20px;
+                    font-size: 30px;
+                    border-bottom: 2px solid #000;
                     @include media-sp{
                         text-align: center;
                     }
