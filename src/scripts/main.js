@@ -176,6 +176,9 @@ const options = {
 const observer = new IntersectionObserver(callback, options); 
 targets.forEach((target) => observer.observe(target));
 
+// 文字アニメーション
+const animatetext = document.querySelector('.js-textAnimation');
+// udemy 動画
 
 // 全ページ数のセット
 const allSlides = document.querySelector('.all-page-number');
