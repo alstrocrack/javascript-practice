@@ -22,6 +22,7 @@ function headerShow(){
     });
 }
 
+// ヘッダーがKVを過ぎると背景が付いて、文字色が変化
 const header = document.querySelector('.js-header');
 const headerRect = header.getBoundingClientRect();
 const headerContent = document.querySelectorAll('.header-list_item > a');
@@ -30,6 +31,7 @@ const logoImgInview = document.querySelector('.inview-image');
 
 const kv = document.querySelector('.kv');
 const kvRect = kv.getBoundingClientRect();
+// ↑これが上手く取れないときアリ
 
 let scrollBool = false;
 
@@ -51,7 +53,13 @@ window.addEventListener('scroll', ()=> {
         console.log('outview!');
         headerBgShow();
     }
+    if(headerBottom < kvBottom && scrollBool) {
+        scrollBool = false;
+        console.log('inview!');
+        headerBgHide();
+    }
 });
+
 function headerBgShow() {
     gsap.to(header, {
         duration: 1.2,
@@ -69,6 +77,31 @@ function headerBgShow() {
         display: 'none',
         onComplete: () => {
             gsap.to(logoImgInview, {
+                duration: 1,
+                ease: Power4.easeOut,
+                display: 'block',
+                y: 0,
+            });
+        }
+    });
+}
+
+function headerBgHide() {
+    gsap.to(header, {
+        duration: 1.2,
+        ease: Power4.easeOut,
+        backgroundColor: 'transparent',
+        boxShadow: 'none',
+    });
+    gsap.to(headerContent, {
+        duration: 1.2,
+        ease: Power4.easeOut,
+        color: '#fff',
+    });
+    gsap.to(logoImgInview, {
+        display: 'none',
+        onComplete: () => {
+            gsap.to(logoImg, {
                 duration: 1,
                 ease: Power4.easeOut,
                 display: 'block',
@@ -292,6 +325,7 @@ let params = {
 };
 gui.addColor( params, 'color' ).onChange( function() { cube.material.color.set( params.color ); } );
 gui.add( params, 'scale' , 1.0, 4.0).onChange( function() { cube.scale.set( params.scale, params.scale, params.scale ); } );
+gui.close();
 /////////////////////////////////////// WebGL ///////////////////////////////////
 
 

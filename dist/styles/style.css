@@ -140,6 +140,10 @@ body {
   background-color: #fffaf0;
 }
 
+.dg.ac {
+  z-index: 100 !important;
+}
+
 .header {
   padding: 10px 25px;
   display: flex;

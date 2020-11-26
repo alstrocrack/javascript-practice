@@ -110,6 +110,11 @@ body {
     background-color: #fffaf0;
 }
 
+// dat.GUIのコントロールパネル
+.dg.ac {
+    z-index: 100 !important;
+}
+
 //--------------- header -------------------------
 .header{
     padding: 10px 25px;
