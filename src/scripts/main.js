@@ -178,7 +178,31 @@ targets.forEach((target) => observer.observe(target));
 
 // 文字アニメーション
 const animatetext = document.querySelector('.js-textAnimation');
-// udemy 動画
+const str = animatetext.innerHTML.trim();
+const strContainer = [];
+for(let el of str) {
+    strContainer.push(el);
+}
+const btn = document.querySelector('.js-btn');
+console.log(strContainer);
+
+// let concatStr = '';
+// for(let c of str) {
+//     concatStr += `<span class="char">${c}</span>`;
+// }
+// animatetext.innerHTML = concatStr;
+// console.log(concatStr);
+
+// // const textContainer = [];
+// const animateChars = animatetext.textContent;
+// textContainer.push(animateChars);
+// const textCuncat =[];
+// textContainer.forEach((char, i) => {
+//     textCuncat.push(textContainer.charAt(i));
+// });
+// console.log(animatetext);
+// console.log(animateChars);
+// console.log(textContainer);
 
 // 全ページ数のセット
 const allSlides = document.querySelector('.all-page-number');
