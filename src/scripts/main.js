@@ -1,150 +1,165 @@
+// 読み込んだ時に発火させるもの
 window.addEventListener('load', () => {
-    headerShow();
-    kvShow();
-    KVinit();
+    //
 });
 
-// mouse stalker
-// const stalker = document.getElementById("mouse-stalker");
-// document.addEventListener('mousemove', function(e){
-//     stalker.style.transform= 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
-// });
-
-/////////////////////////////// header /////////////////////////////////////
-//   ヘッダーのアイコンのフェードイン
-const siteTitle = document.querySelector(".header-title");
-function headerShow(){
-    gsap.to(siteTitle, 3, {
-        y: 0,
-        delay: 1,
-        ease: Power4.easeOut,
-        opacity: 1,
-    });
-}
-
-// ヘッダーがKVを過ぎると背景が付いて、文字色が変化
-const header = document.querySelector('.js-header');
-const headerRect = header.getBoundingClientRect();
-const headerContent = document.querySelectorAll('.header-list_item > a');
-const logoImg = document.querySelector('.outview-image');
-const logoImgInview = document.querySelector('.inview-image');
-
-const kv = document.querySelector('.kv');
-const kvRect = kv.getBoundingClientRect();
-// ↑これが上手く取れないときアリ
-
-let scrollBool = false;
-
-gsap.set(logoImg, {
-    display: 'block',
-});
-gsap.set(logoImgInview, {
-    display: 'none',
-    y: 0,
-});
-
-window.addEventListener('scroll', ()=> {
-    let headerBottom = headerRect.bottom + window.pageYOffset;
-    let kvBottom = kvRect.bottom;
-    console.log(headerBottom);
-    console.log(kvBottom);
-    if(headerBottom > kvBottom && !scrollBool) {
-        scrollBool = true;
-        console.log('outview!');
-        headerBgShow();
+// ヘッダーのロゴ
+class headerLogo {
+    constructor(){
+        this.siteTitle = document.querySelector(".header-title");
     }
-    if(headerBottom < kvBottom && scrollBool) {
-        scrollBool = false;
-        console.log('inview!');
-        headerBgHide();
+    _headerShow(){
+        gsap.to(this.siteTitle, 3, {
+            y: 0,
+            delay: 1,
+            ease: Power4.easeOut,
+            opacity: 1,
+        });
     }
-});
-
-function headerBgShow() {
-    gsap.to(header, {
-        duration: 1.2,
-        ease: Power4.easeOut,
-        backgroundColor: '#fff',
-        boxShadow:"0px 0px 20px #000",
-    });
-    gsap.to(headerContent, {
-        duration: 1.2,
-        ease: Power4.easeOut,
-        color: 'rgb(223, 86, 86)',
-    });
-    gsap.to(logoImg, {
-        ease: Power4.easeOut,
-        display: 'none',
-        onComplete: () => {
-            gsap.to(logoImgInview, {
-                duration: 1,
-                ease: Power4.easeOut,
-                display: 'block',
-                y: 0,
-            });
-        }
-    });
 }
+const logo = new headerLogo();
+logo._headerShow();
 
-function headerBgHide() {
-    gsap.to(header, {
-        duration: 1.2,
-        ease: Power4.easeOut,
-        backgroundColor: 'transparent',
-        boxShadow: 'none',
-    });
-    gsap.to(headerContent, {
-        duration: 1.2,
-        ease: Power4.easeOut,
-        color: '#fff',
-    });
-    gsap.to(logoImgInview, {
-        display: 'none',
-        onComplete: () => {
-            gsap.to(logoImg, {
-                duration: 1,
-                ease: Power4.easeOut,
-                display: 'block',
-                y: 0,
-            });
-        }
-    });
+// ヘッダーの色切り替え
+class headerBgShow {
+    constructor(){
+        // DOMの取得
+        this.header = document.querySelector('.js-header');
+        this.headerContent = document.querySelectorAll('.header-list_item > a');
+        this.logoImg = document.querySelector('.outview-image');
+        this.logoImgInview = document.querySelector('.inview-image');
+        this.kv = document.querySelector('.kv');
+
+        // 位置座標の取得
+        this.headerRect = this.header.getBoundingClientRect();
+        this.kvRect = this.kv.getBoundingClientRect();
+
+        // 処理を1回に限定するための真偽値
+        this.scrollBool = false;
+
+        // ロゴイメージの初期化
+        gsap.set(this.logoImg, {
+            display: 'block',
+        });
+        gsap.set(this.logoImgInview, {
+            display: 'none',
+            y: 0,
+        });
+    }
+    _headerBgIn() {
+        gsap.to(this.header, {
+            duration: 1.2,
+            ease: Power4.easeOut,
+            backgroundColor: '#fff',
+            boxShadow:"0px 0px 20px #000",
+        });
+        gsap.to(this.headerContent, {
+            duration: 1.2,
+            ease: Power4.easeOut,
+            color: 'rgb(223, 86, 86)',
+        });
+        gsap.to(this.logoImg, {
+            ease: Power4.easeOut,
+            display: 'none',
+            onComplete: () => {
+                gsap.to(this.logoImgInview, {
+                    duration: 1,
+                    ease: Power4.easeOut,
+                    display: 'block',
+                    y: 0,
+                });
+            }
+        });
+    }
+    _headerBgOut() {
+        gsap.to(this.header, {
+            duration: 1.2,
+            ease: Power4.easeOut,
+            backgroundColor: 'transparent',
+            boxShadow: 'none',
+        });
+        gsap.to(this.headerContent, {
+            duration: 1.2,
+            ease: Power4.easeOut,
+            color: '#fff',
+        });
+        gsap.to(this.logoImgInview, {
+            display: 'none',
+            onComplete: () => {
+                gsap.to(this.logoImg, {
+                    duration: 1,
+                    ease: Power4.easeOut,
+                    display: 'block',
+                    y: 0,
+                });
+            }
+        });
+    }
+    _BgStart() {
+        window.addEventListener('scroll', ()=> {
+            let headerBottom = this.headerRect.bottom + window.pageYOffset;
+            let kvBottom = this.kvRect.bottom;
+            if(headerBottom > kvBottom && !this.scrollBool) {
+                this.scrollBool = true;
+                console.log('outview!');
+                this._headerBgIn();
+            }
+            if(headerBottom < kvBottom && this.scrollBool) {
+                this.scrollBool = false;
+                console.log('inview!');
+                this._headerBgOut();
+            }
+        });
+    }
 }
-/////////////////////////////// header /////////////////////////////////////
+const header = new headerBgShow();
+header._BgStart();
 
 // KVのフェードイン
-const kvText = document.querySelector(".kv-text_content");
-gsap.set(kvText, {
-    y: 40,
-    opacity: 0,
-})
-function kvShow(){
-    gsap.to(kvText, 3, {
-        y: 0,
-        delay: 2,
-        ease: Power2.easeOut,
-        opacity: 1,
-    });
+class kvShow {
+    constructor() {
+        this.kvText = document.querySelector(".kv-text_content");
+        gsap.set(this.kvText, {
+            y: 40,
+            opacity: 0,
+        });
+    }
+    _kvFadein(){
+        gsap.to(this.kvText, 3, {
+            y: 0,
+            delay: 2,
+            ease: Power2.easeOut,
+            opacity: 1,
+        });
+    }
 }
+const kvText = new kvShow();
+kvText._kvFadein();
 
-// KVのスライド
-function KVinit(){
-    const kvSwiper = new Swiper('.kv-swiper-container', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true,
-        speed: 1000,
-        centeredSlides: true,
-        effect: 'fade',
-        allowTouchMove: false,
-        disableOnInteraction: false,
-        autoplay:{
-            delay: 7000,
-            stopOnlastSlide: false,
+// KVのスライドショー
+class kvSlide {
+    constructor() {
+        this.kvSlider = document.querySelector('.kv-swiper-container');
+    }
+    _KVinit(){
+        const kvSwiper = new Swiper(this.kvSlider, {
+            direction: 'horizontal',
+            loop: true,
+            speed: 1000,
+            centeredSlides: true,
+            effect: 'fade',
+            allowTouchMove: false,
             disableOnInteraction: false,
-        },
-    });
+            autoplay:{
+                delay: 7000,
+                stopOnlastSlide: false,
+                disableOnInteraction: false,
+            },
+        });
+    }
 }
+const kvSlideShow = new kvSlide();
+kvSlideShow._KVinit();
 
 // IntersectionObserver
 function contentshow(e){
@@ -176,7 +191,7 @@ const options = {
 const observer = new IntersectionObserver(callback, options); 
 targets.forEach((target) => observer.observe(target));
 
-// 文字アニメーション
+/////////////////////////////// 文字アニメーション /////////////////////////////////////////
 const animatetext = document.querySelector('.js-textAnimation');
 const str = animatetext.innerHTML.trim().split("");
 
@@ -202,55 +217,60 @@ btn.addEventListener('click', () => {
 });
 console.log(animatetext.innerHTML);
 console.log(chars);
+/////////////////////////////// 文字アニメーション /////////////////////////////////////////
 
-// 全ページ数のセット
-const allSlides = document.querySelector('.all-page-number');
-const slides = document.querySelectorAll(".js-carousel");
-const slideBox = [];
-slides.forEach(slide => {
-    slideBox.push(slide);
-});
-function setCarousel(){
-    allSlides.textContent = slideBox.length;
-};
-setCarousel();
+// content2のカルーセル
+class contentCarousel {
+    constructor() {
+        // DOMの取得
+        this.allSlides = document.querySelector('.all-page-number');
+        this.currentSlides = document.querySelector('.current-page-number');
+        this.slides = document.querySelectorAll(".js-carousel");
+        this.swiper = document.querySelector('.swiper-container');
 
-let currentPageNumber = 0;
-let currentSlides = document.querySelector('.current-page-number');
-currentSlides.textContent = 1;
-// コンテンツ2 カルーセル
-const Carousel = new Swiper('.swiper-container', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: true,
-    speed: 600,
-    centeredSlides: true,
-    slidesPerView: 1,
-    spaceBetween: 50,
-    breakpoints: {
-        768: {
-            slidesPerView: 2,
-        }
-    },
-    // Navigation arrows
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    on: {
-        slideChange: () => {
-            if(currentPageNumber !== Carousel.realIndex){
-                currentPageNumber = Carousel.realIndex;
-            }
-            currentSlides.textContent = currentPageNumber + 1;
-        }
+        // スライドを配列に格納
+        this.slideBox = [];
+        this.slides.forEach(slide => {
+            this.slideBox.push(slide);
+        });
+
+        // 現在のスライドの番号表示の初期化処理
+        this.allSlides.textContent = this.slideBox.length;
+        this.currentPageNumber = 0;
+        this.currentSlides.textContent = 1;
     }
-});
+    _contentCarousel() {
+        const mySwiper = new Swiper(this.swiper, {
+            direction: 'horizontal',
+            loop: true,
+            speed: 600,
+            centeredSlides: true,
+            slidesPerView: 1,
+            spaceBetween: 50,
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                }
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            on: {
+                slideChange: () => {
+                    if(this.currentPageNumber !== mySwiper.realIndex){
+                        this.currentPageNumber = mySwiper.realIndex;
+                    }
+                    this.currentSlides.textContent = this.currentPageNumber + 1;
+                }
+            }
+        });
+    }
+}
+const Carousel = new contentCarousel();
+Carousel._contentCarousel();
 
-
-
-/////////////////////////////////////// Accordion ////////////////////////////////////////////
-
+// content3のアコーディオン
 class Accordion {
     constructor(el){
     this.el = el;
@@ -297,17 +317,13 @@ class Accordion {
     this.icon.classList.add('plus');
     };
 }
-    
 function acoInit(){
-Array.from(document.querySelectorAll('.js-accordion'), (e, i) => {
-const item = new Accordion(e);
-item._init();
-})
+    Array.from(document.querySelectorAll('.js-accordion'), (e, i) => {
+        const item = new Accordion(e);
+        item._init();
+    });
 }
 acoInit();
-    
-/////////////////////////////////////// Accordion ///////////////////////////////
-
 
 /////////////////////////////////////// WebGL ///////////////////////////////////
     // サイズの指定
