@@ -178,31 +178,30 @@ targets.forEach((target) => observer.observe(target));
 
 // 文字アニメーション
 const animatetext = document.querySelector('.js-textAnimation');
-const str = animatetext.innerHTML.trim();
-const strContainer = [];
-for(let el of str) {
-    strContainer.push(el);
-}
-const btn = document.querySelector('.js-btn');
-console.log(strContainer);
+const str = animatetext.innerHTML.trim().split("");
 
-// let concatStr = '';
-// for(let c of str) {
-//     concatStr += `<span class="char">${c}</span>`;
-// }
-// animatetext.innerHTML = concatStr;
-// console.log(concatStr);
+animatetext.innerHTML = str.reduce((acc, curr) => {
+    curr= curr.replace(/\s+/, '&nbsp;');
+    return `${acc}<span class="char">${curr}</span>`;
+}, "");
 
-// // const textContainer = [];
-// const animateChars = animatetext.textContent;
-// textContainer.push(animateChars);
-// const textCuncat =[];
-// textContainer.forEach((char, i) => {
-//     textCuncat.push(textContainer.charAt(i));
-// });
-// console.log(animatetext);
-// console.log(animateChars);
-// console.log(textContainer);
+const chars = animatetext.querySelectorAll('.char');
+
+
+const btn = document.querySelector('.js-animatebtn');
+btn.addEventListener('click', () => {
+    chars.forEach((c, i) => {
+        gsap.to(c, .6, {
+            ease: Back.easeOut,
+            delay: i * .1,
+            startAt: {y: '-50%', opacity: 0},
+            y:'0%',
+            opacity: 1,
+        });
+    });
+});
+console.log(animatetext.innerHTML);
+console.log(chars);
 
 // 全ページ数のセット
 const allSlides = document.querySelector('.all-page-number');
