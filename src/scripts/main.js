@@ -218,31 +218,36 @@ const so = new scrollObserver('.js-scroll', cb);
 ///////////////////////////////////////////  IntersectionObserver /////////////////////////////////////////////
 
 /////////////////////////////// 文字アニメーション /////////////////////////////////////////
-const animatetext = document.querySelector('.js-textAnimation');
-const str = animatetext.innerHTML.trim().split("");
-
-animatetext.innerHTML = str.reduce((acc, curr) => {
-    curr= curr.replace(/\s+/, '&nbsp;');
-    return `${acc}<span class="char">${curr}</span>`;
-}, "");
-
-const chars = animatetext.querySelectorAll('.char');
-
-
-const btn = document.querySelector('.js-animatebtn');
-btn.addEventListener('click', () => {
-    chars.forEach((c, i) => {
-        gsap.to(c, .6, {
-            ease: Back.easeOut,
-            delay: i * .1,
-            startAt: {y: '-50%', opacity: 0},
-            y:'0%',
-            opacity: 1,
+class textAnimation {
+    constructor() {
+        this.el = document.querySelector('.js-textAnimation');
+        this.str = this.el.innerHTML.trim().split("");
+        this._concat();
+        this.chars = this.el.querySelectorAll('.char');
+        this.btn = document.querySelector('.js-animatebtn');
+    }
+    _concat() {
+        this.el.innerHTML = this.str.reduce((acc, curr) => {
+            curr= curr.replace(/\s+/, '&nbsp;');
+            return `${acc}<span class="char">${curr}</span>`;
+        }, "");
+    }
+    _animationStart() {
+        this.btn.addEventListener('click', () => {
+            this.chars.forEach((c, i) => {
+                gsap.to(c, .6, {
+                    ease: Back.easeOut,
+                    delay: i * .1,
+                    startAt: {y: '-50%', opacity: 0},
+                    y:'0%',
+                    opacity: 1,
+                });
+            });
         });
-    });
-});
-console.log(animatetext.innerHTML);
-console.log(chars);
+    }
+}
+const textAnime = new textAnimation();
+textAnime._animationStart();
 /////////////////////////////// 文字アニメーション /////////////////////////////////////////
 
 // content2のカルーセル
