@@ -21,6 +21,12 @@ a{
     display: flex;
     align-items: center;
     margin-bottom: 30px;
+    .js-textAnimation {
+        & > .char {
+            opacity: 0;
+            display: inline-block;
+        }
+    }
     .small-title{
         display: inline-block;
         margin-left: 10px;

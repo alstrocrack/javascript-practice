@@ -161,7 +161,7 @@ class kvSlide {
 const kvSlideShow = new kvSlide();
 kvSlideShow._KVinit();
 
-// IntersectionObserver
+///////////////////////////////////////////  IntersectionObserver /////////////////////////////////////////////
 function contentshow(e){
     gsap.to(e, {
         duration: 1,
@@ -171,25 +171,51 @@ function contentshow(e){
         y: -20,
     })
 }
-const targets = document.querySelectorAll('.js-scroll')
-const callback = function(entries, observer){
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            // console.log('inview');
-            contentshow(entry.target);
-            observer.unobserve(entry.target);
-        } else {
-            //
-        }
-    });
+const cb = function(el, isIntersecting) {
+    if(isIntersecting) {
+        contentshow(el);
+    }
 }
-const options = {
-    root: null, // 交差対象の親を指定
-    rootMargin: "0px", // 交差点の指定
-    threshold: 0, // 交差対象の発火場所
+class scrollObserver {
+    constructor(els, cb, options) {
+        this.els = document.querySelectorAll(els);
+        const defaultOptions = {
+            root: null, 
+            rootMargin: "0px", 
+            threshold: 0,
+            once: true,
+        };
+        this.cb = cb;
+        this.options = Object.assign(defaultOptions, options);
+        this.once = this.options.once;
+        this._init();
+    }
+    _init() {
+        const callback = function(entries, observer){
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    this.cb(entry.target, true);
+                    if(this.once) {
+                        observer.unobserve(entry.target);
+                    }
+                } else {
+                    this.cb(entry.target, false);
+                }
+            });
+        };
+        this.io = new IntersectionObserver(callback.bind(this), this.options); 
+
+        // @see https://github.com/w3c/IntersectionObserver/tree/master/polyfill
+        this.io.POLL_INTERVAL = 100;
+
+        this.els.forEach(el => this.io.observe(el));
+    }
+    destroy() {
+        this.io.disconnect();
+    }
 }
-const observer = new IntersectionObserver(callback, options); 
-targets.forEach((target) => observer.observe(target));
+const so = new scrollObserver('.js-scroll', cb);
+///////////////////////////////////////////  IntersectionObserver /////////////////////////////////////////////
 
 /////////////////////////////// 文字アニメーション /////////////////////////////////////////
 const animatetext = document.querySelector('.js-textAnimation');

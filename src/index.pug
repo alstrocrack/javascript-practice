@@ -53,7 +53,8 @@ html(lang="en")
                         p.scroll
                 .contents.content-width
                     h4.title
-                        | CONTENT1
+                        p.title_inner.js-textAnimation
+                            | CONTENT1
                         span.small-title
                             | slideshow
                     .contents-core
@@ -61,7 +62,7 @@ html(lang="en")
                             .contents-each_image
                                 img(src="assets/images/b-contents-img_01.jpg", alt="")
                             .contents-each_text
-                                h5.contents-each_text-title.js-textAnimation Aries Aries
+                                h5.contents-each_text-title Aries
                                 button.js-animatebtn BUTTON
                                 p.contents-each_text-dsec Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi erat sem, mollis nec vulputate a, sodales a magna. Donec quis velit tristique erat porta feugiat. Integer imperdiet, arcu vel pharetra commodo, lorem eros vestibulum est, et accumsan diam neque ac nisi. Praesent mauris purus, cursus ac neque interdum, lacinia ullamcorper quam. Morbi ullamcorper ante at ex maximus, in laoreet odio dictum. Sed feugiat aliquam purus vestibulum aliquet. Proin convallis, nisl quis mollis porttitor, velit tellus consectetur eros, eget sollicitudin leo ligula vel diam. Vivamus vestibulum dictum arcu, quis pulvinar tellus rhoncus nec.
                         .contents-each.js-scroll
@@ -142,6 +143,7 @@ html(lang="en")
 
             //- ここから読み込み部分
             script(src = "assets/js/libs/gsap/gsap.min.js")
+            script(src = "assets/js/libs/scroll-polyfill/scroll-polyfill.js")
             script(src = "assets/js/libs/swiper/swiper.min.js")
             script(src = "scripts/libs/CCarousel.js")
             script(src = "scripts/main.js")
