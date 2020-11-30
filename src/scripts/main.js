@@ -219,12 +219,12 @@ const so = new scrollObserver('.js-scroll', cb);
 
 /////////////////////////////// 文字アニメーション /////////////////////////////////////////
 class textAnimation {
-    constructor() {
-        this.el = document.querySelector('.js-textAnimation');
+    constructor(el) {
+        // 渡って来る要素がDOMかどうか判定する
+        this.el = el  instanceof HTMLElement ? el : document.querySelector(el);
         this.str = this.el.innerHTML.trim().split("");
         this._concat();
         this.chars = this.el.querySelectorAll('.char');
-        this.btn = document.querySelector('.js-animatebtn');
     }
     _concat() {
         this.el.innerHTML = this.str.reduce((acc, curr) => {
@@ -233,21 +233,24 @@ class textAnimation {
         }, "");
     }
     _animationStart() {
-        this.btn.addEventListener('click', () => {
-            this.chars.forEach((c, i) => {
-                gsap.to(c, .6, {
-                    ease: Back.easeOut,
-                    delay: i * .1,
-                    startAt: {y: '-50%', opacity: 0},
-                    y:'0%',
-                    opacity: 1,
-                });
+        this.chars.forEach((c, i) => {
+            gsap.to(c, {
+                ease: Back.easeOut,
+                delay: i * .05,
+                startAt: {y: '50%', opacity: 0},
+                y:'0%',
+                opacity: 1,
             });
         });
     }
 }
-const textAnime = new textAnimation();
-textAnime._animationStart();
+const cb2 = function(el, isIntersecting) {
+    if(isIntersecting) {
+        const textAnime = new textAnimation(el);
+        textAnime._animationStart();
+    }
+}
+const so2 = new scrollObserver('.js-textAnimation', cb2);
 /////////////////////////////// 文字アニメーション /////////////////////////////////////////
 
 // content2のカルーセル
