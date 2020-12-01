@@ -590,3 +590,45 @@ body {
   height: 500px;
   margin: 0 auto;
 }
+
+.toTop {
+  position: fixed;
+  bottom: 150px;
+  right: -10px;
+  width: auto;
+  height: auto;
+  transform: rotate(90deg);
+  z-index: 999;
+}
+
+@media only screen and (min-width: 768px) {
+  .toTop {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .toTop {
+    display: none;
+  }
+}
+
+.toTop > a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.toTop_image {
+  width: 30px;
+  transform: rotate(180deg);
+}
+
+.toTop_text {
+  color: #4b4b4b;
+  font-weight: 600;
+  padding-top: 7.5px;
+  margin-left: 7px;
+  font-size: 20px;
+}

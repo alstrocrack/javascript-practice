@@ -142,7 +142,11 @@ html(lang="en")
                         span.small-title.js-textAnimation
                             | webGL
                     canvas.webgl_inner#webglCanvas
-
+            aside.toTop
+                a(href="#")
+                    .toTop_image
+                        img(src="assets/images/b-toTop_icon.svg", alt="")
+                    p.toTop_text Go To Top
             //- ここから読み込み部分
             script(src = "assets/js/libs/gsap/gsap.min.js")
             script(src = "assets/js/libs/scroll-polyfill/scroll-polyfill.js")
