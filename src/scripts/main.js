@@ -359,51 +359,51 @@ function acoInit(){
 }
 acoInit();
 /////////////////////////////////////// WebGL ///////////////////////////////////
-    // サイズの指定
-    {
-        const width = 960;
-        const height = 540;
+// サイズの指定
+{
+    const width = 960;
+    const height = 540;
 
-        // レンダラーを作成
-        let renderer = new THREE.WebGLRenderer({
-            canvas: document.querySelector('#webglCanvas')
-        });
-        renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(width, height);
+    // レンダラーを作成
+    let renderer = new THREE.WebGLRenderer({
+        canvas: document.querySelector('#webglCanvas')
+    });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(width, height);
 
-        // シーンを作成
-        let scene = new THREE.Scene();
+    // シーンを作成
+    let scene = new THREE.Scene();
 
-        // カメラを作成
-        let camera = new THREE.PerspectiveCamera( 45, width / height );
-        camera.position.set(0, 0, +1000);
+    // カメラを作成
+    let camera = new THREE.PerspectiveCamera( 45, width / height );
+    camera.position.set(0, 0, +1000);
 
-        // 箱を作成
-        let geometry = new THREE.BoxGeometry(400, 400, 400);
-        let material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
-        let cube = new THREE.Mesh( geometry, material );
-        scene.add( cube );
+    // 箱を作成
+    let geometry = new THREE.BoxGeometry(400, 400, 400);
+    let material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+    let cube = new THREE.Mesh( geometry, material );
+    scene.add( cube );
 
-        // 毎フレーム実行されるループイベント
-        let animate = function () {
-            requestAnimationFrame( animate );
-            cube.rotation.x += 0.01;
-            cube.rotation.y += 0.01;
-            renderer.render( scene, camera );
-        };
-        animate();
-
-
-    let gui = new dat.GUI();
-    let params = {
-        color: 0x00ff00,
-        scale: 1,
+    // 毎フレーム実行されるループイベント
+    let animate = function () {
+        requestAnimationFrame( animate );
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+        renderer.render( scene, camera );
     };
-    gui.addColor( params, 'color' ).onChange( function() { cube.material.color.set( params.color ); } );
-    gui.add( params, 'scale' , 1.0, 4.0).onChange( function() { cube.scale.set( params.scale, params.scale, params.scale ); } );
-    gui.close();
+    animate();
 
-    }
+
+let gui = new dat.GUI();
+let params = {
+    color: 0x00ff00,
+    scale: 1,
+};
+gui.addColor( params, 'color' ).onChange( function() { cube.material.color.set( params.color ); } );
+gui.add( params, 'scale' , 1.0, 4.0).onChange( function() { cube.scale.set( params.scale, params.scale, params.scale ); } );
+gui.close();
+
+}
 /////////////////////////////////////// WebGL ///////////////////////////////////
 
 class ToTop {
