@@ -599,6 +599,7 @@ body {
   height: auto;
   transform: rotate(90deg);
   z-index: 999;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 768px) {
@@ -613,7 +614,7 @@ body {
   }
 }
 
-.toTop > a {
+.toTop_core {
   display: flex;
   align-items: center;
   width: 100%;

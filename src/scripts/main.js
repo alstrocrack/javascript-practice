@@ -169,7 +169,7 @@ function contentshow(e){
         delay: .5,
         ease: Power1.easeOut,
         y: -20,
-    })
+    });
 }
 const cb = function(el, isIntersecting) {
     if(isIntersecting) {
@@ -358,51 +358,144 @@ function acoInit(){
     });
 }
 acoInit();
-
 /////////////////////////////////////// WebGL ///////////////////////////////////
     // サイズの指定
-    const width = 960;
-    const height = 540;
+    {
+        const width = 960;
+        const height = 540;
 
-    // レンダラーを作成
-    let renderer = new THREE.WebGLRenderer({
-        canvas: document.querySelector('#webglCanvas')
-    });
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(width, height);
+        // レンダラーを作成
+        let renderer = new THREE.WebGLRenderer({
+            canvas: document.querySelector('#webglCanvas')
+        });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(width, height);
 
-    // シーンを作成
-    let scene = new THREE.Scene();
+        // シーンを作成
+        let scene = new THREE.Scene();
 
-    // カメラを作成
-    let camera = new THREE.PerspectiveCamera( 45, width / height );
-    camera.position.set(0, 0, +1000);
+        // カメラを作成
+        let camera = new THREE.PerspectiveCamera( 45, width / height );
+        camera.position.set(0, 0, +1000);
 
-    // 箱を作成
-    let geometry = new THREE.BoxGeometry(400, 400, 400);
-    let material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
-    let cube = new THREE.Mesh( geometry, material );
-    scene.add( cube );
+        // 箱を作成
+        let geometry = new THREE.BoxGeometry(400, 400, 400);
+        let material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+        let cube = new THREE.Mesh( geometry, material );
+        scene.add( cube );
 
-    // 毎フレーム実行されるループイベント
-    let animate = function () {
-        requestAnimationFrame( animate );
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
-        renderer.render( scene, camera );
+        // 毎フレーム実行されるループイベント
+        let animate = function () {
+            requestAnimationFrame( animate );
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            renderer.render( scene, camera );
+        };
+        animate();
+
+
+    let gui = new dat.GUI();
+    let params = {
+        color: 0x00ff00,
+        scale: 1,
     };
-    animate();
+    gui.addColor( params, 'color' ).onChange( function() { cube.material.color.set( params.color ); } );
+    gui.add( params, 'scale' , 1.0, 4.0).onChange( function() { cube.scale.set( params.scale, params.scale, params.scale ); } );
+    gui.close();
 
-
-let gui = new dat.GUI();
-let params = {
-    color: 0x00ff00,
-    scale: 1,
-};
-gui.addColor( params, 'color' ).onChange( function() { cube.material.color.set( params.color ); } );
-gui.add( params, 'scale' , 1.0, 4.0).onChange( function() { cube.scale.set( params.scale, params.scale, params.scale ); } );
-gui.close();
+    }
 /////////////////////////////////////// WebGL ///////////////////////////////////
+
+class ToTop {
+    constructor() {
+        // DOMの取得
+        this.header = document.querySelector('.js-header');
+        this.headerContent = document.querySelectorAll('.header-list_item > a');
+        this.logoImg = document.querySelector('.outview-image');
+        this.logoImgInview = document.querySelector('.inview-image');
+        this.kv = document.querySelector('.kv');
+
+        // 位置座標の取得
+        this.headerRect = this.header.getBoundingClientRect();
+        this.kvRect = this.kv.getBoundingClientRect();
+
+        // 処理を1回に限定するための真偽値
+        this.scrollBool = false;
+
+        //操作するDOM
+        this.el = document.querySelector('.toTop');
+        gsap.set(this.el, {
+            x: 100,
+        });
+    }
+    init() {
+        this._asideShow();
+        this._scrollTop();
+        this._floatUp();
+    }
+    _asideShow() {
+        window.addEventListener('scroll', ()=> {
+            let headerBottom = this.headerRect.bottom + window.pageYOffset;
+            let kvBottom = this.kvRect.bottom;
+            if(headerBottom > kvBottom && !this.scrollBool) {
+                this.scrollBool = true;
+                console.log('outview!');
+                this._asideIn();
+            }
+            if(headerBottom < kvBottom && this.scrollBool) {
+                this.scrollBool = false;
+                console.log('inview!');
+                this._asideOut();
+            }
+        });
+    }
+    _scrollTop() {
+        this.el.addEventListener('click', () => {
+            gsap.to(window, {
+                duration: 1,
+                ease: Power3.easeOut,
+                scrollTo: {y: 0},
+            });
+        });
+    }
+    _floatUp() {
+        gsap.to(this.el, {
+            duration: 1,
+            y: -5,
+            // ease: Power4.easeInOut,
+            onComplete: () => {
+                this._floatDown();
+            },
+        });
+    }
+    _floatDown() {
+        gsap.to(this.el, {
+            duration: 1,
+            y: 5,
+            // ease: Power4.easeInOut,
+            onComplete: () => {
+                this._floatUp();
+            },
+        });
+    }
+    _asideIn() {
+        gsap.to(this.el, {
+            x: 0,
+            ease: Power4.easeOut,
+            duration: 0.4,
+        });
+    }
+    _asideOut() {
+        gsap.to(this.el, {
+            x: 100,
+            ease: Power4.easeIn,
+            duration: 0.4,
+        });
+    }
+}
+const toTop = new ToTop();
+toTop.init();
+
 
 
 

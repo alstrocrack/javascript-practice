@@ -143,12 +143,13 @@ html(lang="en")
                             | webGL
                     canvas.webgl_inner#webglCanvas
             aside.toTop
-                a(href="#")
+                div.toTop_core
                     .toTop_image
                         img(src="assets/images/b-toTop_icon.svg", alt="")
                     p.toTop_text Go To Top
             //- ここから読み込み部分
             script(src = "assets/js/libs/gsap/gsap.min.js")
+            script(src = "assets/js/libs/gsap/scrollToPlugin.min.js")
             script(src = "assets/js/libs/scroll-polyfill/scroll-polyfill.js")
             script(src = "assets/js/libs/swiper/swiper.min.js")
             script(src = "scripts/libs/CCarousel.js")

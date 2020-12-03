@@ -484,7 +484,8 @@ body {
     height: auto;
     transform: rotate(90deg);
     z-index: 999;
-    & > a {
+    cursor: pointer;
+    &_core {
         display: flex;
         align-items: center;
         width: 100%;
