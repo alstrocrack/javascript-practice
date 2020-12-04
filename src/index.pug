@@ -51,6 +51,18 @@ html(lang="en")
                     .kv-text 
                         h2.kv-text_content Site
                         p.scroll
+                .global-menu
+                    ul.global-menu_inner
+                        li.global-menu-list
+                            a(href="/") CONTENT1
+                        li.global-menu-list
+                            a(href="/") CONTENT2
+                        li.global-menu-list
+                            a(href="/") CONTENT3
+                        li.global-menu-list
+                            a(href="/") CONTENT4
+                        li.global-menu-list
+                            a(href="/") CONTENT5
                 .contents.content-width
                     h4.title
                         p.title_inner.js-textAnimation
@@ -135,10 +147,24 @@ html(lang="en")
                                 img(src="assets/images/b-minus_icon.svg", alt="", class="minus-icon")
                         .accordion-inner.js-draw
                             p.accordion-inner-text Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ex at consequuntur fugit repudiandae perferendis iure vero provident. Ex error animi quas repudiandae molestiae quisquam voluptates illo beatae saepe ad.
-                .webgl.content-width
+                .tab.content-width
                     h4.title
                         p.title_inner.js-textAnimation
                             | CONTENT4
+                        span.small-title.js-textAnimation
+                            | Tab
+                    .tab-wrap
+                        ul.tab-menu
+                            li.tab-menu_item(data-id="cancer" class="active") Cancer
+                            li.tab-menu_item(data-id="scopio") Scorpio
+                            li.tab-menu_item(data-id="sagittarius") Sagittarius
+                        section.tab-content(id="cancer" class="active") 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.
+                        section.tab-content(id="scopio") 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.
+                        section.tab-content(id="sagittarius") 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.
+                .webgl.content-width
+                    h4.title
+                        p.title_inner.js-textAnimation
+                            | CONTENT5
                         span.small-title.js-textAnimation
                             | webGL
                     canvas.webgl_inner#webglCanvas

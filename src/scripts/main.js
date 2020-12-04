@@ -1,7 +1,16 @@
 // 読み込んだ時に発火させるもの
 window.addEventListener('load', () => {
-    //
+    reload();
+    new headerBgShow();
 });
+
+// ロード時にページトップ
+function reload() {
+    gsap.to(window, {
+        duration: .01,
+        scrollTo: {y: 0},
+    });
+}
 
 // ヘッダーのロゴ
 class headerLogo {
@@ -45,6 +54,7 @@ class headerBgShow {
             display: 'none',
             y: 0,
         });
+        this._BgStart();
     }
     _headerBgIn() {
         gsap.to(this.header, {
@@ -112,8 +122,6 @@ class headerBgShow {
         });
     }
 }
-const header = new headerBgShow();
-header._BgStart();
 
 // KVのフェードイン
 class kvShow {
@@ -405,6 +413,34 @@ gui.close();
 
 }
 /////////////////////////////////////// WebGL ///////////////////////////////////
+
+class tab {
+    constructor() {
+        this.menuItems = document.querySelectorAll('.tab-menu_item');
+        this.tabContent = document.querySelectorAll('.tab-content');
+        this._change();
+    }
+    _change() {
+        this.menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // 全てのタブからactiveクラスを消去
+                this.menuItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+                // クリックしたitemのタブにactiveクラスを付与
+                item.classList.add('active');
+
+                // 全てのコンテンツからactiveクラスを消去
+                this.tabContent.forEach(item => {
+                    item.classList.remove('active');
+                });
+                // クリックしたタブに対応するコンテンツにactiveクラスを付与
+                document.getElementById(item.dataset.id).classList.add('active');
+            });
+        });
+    }
+}
+new tab();
 /////////////////////////////////////// pageTop /////////////////////////////
 class ToTop {
     constructor() {
