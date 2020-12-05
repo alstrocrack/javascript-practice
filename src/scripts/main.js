@@ -111,12 +111,12 @@ class headerBgShow {
             let kvBottom = this.kvRect.bottom;
             if(headerBottom > kvBottom && !this.scrollBool) {
                 this.scrollBool = true;
-                console.log('outview!');
+                // console.log('outview!');
                 this._headerBgIn();
             }
             if(headerBottom < kvBottom && this.scrollBool) {
                 this.scrollBool = false;
-                console.log('inview!');
+                // console.log('inview!');
                 this._headerBgOut();
             }
         });
@@ -475,12 +475,12 @@ class ToTop {
             let kvBottom = this.kvRect.bottom;
             if(headerBottom > kvBottom && !this.scrollBool) {
                 this.scrollBool = true;
-                console.log('outview!');
+                // console.log('outview!');
                 this._asideIn();
             }
             if(headerBottom < kvBottom && this.scrollBool) {
                 this.scrollBool = false;
-                console.log('inview!');
+                // console.log('inview!');
                 this._asideOut();
             }
         });
@@ -531,6 +531,36 @@ class ToTop {
 }
 const toTop = new ToTop();
 toTop.init();
+
+/////////////////////////////////////// AnchorLink /////////////////////////////
+class Anchor {
+    constructor(){
+        this.triggers = document.querySelectorAll(".js-anchor");
+        // this.target = document.getElementById('tab');s
+        // this.targetPosition = this.target.getBoundingClientRect().top;
+        this.gap = 250;
+        this.smoothScroll();
+        console.log(this.targetPosition);
+    }
+    smoothScroll() {
+        this.triggers.forEach(trigger => {
+            trigger.addEventListener('click', e => {
+                e.preventDefault();
+                let target = document.getElementById(trigger.dataset.target);
+                let targetPosition = target.getBoundingClientRect().top;
+                let distance = targetPosition + this.gap;
+                console.log(targetPosition);
+                console.log(distance);
+                gsap.to(window, {
+                    scrollTo: {y: distance},
+                    duration: 1.5,
+                    ease: Power4.easeOut,
+                });
+            });
+        });
+    }
+}
+new Anchor();
 
 
 

@@ -54,16 +54,16 @@ html(lang="en")
                 .global-menu
                     ul.global-menu_inner
                         li.global-menu-list
-                            a(href="/") CONTENT1
+                            a(href="/", data-target="contents").js-anchor CONTENT1
                         li.global-menu-list
-                            a(href="/") CONTENT2
+                            a(href="/", data-target="carousel").js-anchor CONTENT2
                         li.global-menu-list
-                            a(href="/") CONTENT3
+                            a(href="/", data-target="accordion").js-anchor CONTENT3
                         li.global-menu-list
-                            a(href="/") CONTENT4
+                            a(href="/", data-target="tab").js-anchor CONTENT4
                         li.global-menu-list
-                            a(href="/") CONTENT5
-                .contents.content-width
+                            a(href="/", data-target="webGL").js-anchor CONTENT5
+                .contents.content-width#contents
                     h4.title
                         p.title_inner.js-textAnimation
                             | CONTENT1
@@ -88,7 +88,7 @@ html(lang="en")
                             .contents-each_text
                                 h5.contents-each_text-title Gemini
                                 p.contents-each_text-dsec Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi erat sem, mollis nec vulputate a, sodales a magna. Donec quis velit tristique erat porta feugiat. Integer imperdiet, arcu vel pharetra commodo, lorem eros vestibulum est, et accumsan diam neque ac nisi. Praesent mauris purus, cursus ac neque interdum, lacinia ullamcorper quam. Morbi ullamcorper ante at ex maximus, in laoreet odio dictum. Sed feugiat aliquam purus vestibulum aliquet. Proin convallis, nisl quis mollis porttitor, velit tellus consectetur eros, eget sollicitudin leo ligula vel diam. Vivamus vestibulum dictum arcu, quis pulvinar tellus rhoncus nec.
-                .carousel
+                .carousel#carousel
                     h4.title
                             p.title_inner.js-textAnimation
                                 | CONTENT2
@@ -117,7 +117,7 @@ html(lang="en")
                         .current-page-number
                         .slash /
                         .all-page-number
-                .accordion.content-width
+                .accordion.content-width#accordion
                     h4.title
                         p.title_inner.js-textAnimation
                             | CONTENT3
@@ -147,7 +147,7 @@ html(lang="en")
                                 img(src="assets/images/b-minus_icon.svg", alt="", class="minus-icon")
                         .accordion-inner.js-draw
                             p.accordion-inner-text Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ex at consequuntur fugit repudiandae perferendis iure vero provident. Ex error animi quas repudiandae molestiae quisquam voluptates illo beatae saepe ad.
-                .tab.content-width
+                .tab.content-width#tab
                     h4.title
                         p.title_inner.js-textAnimation
                             | CONTENT4
@@ -161,7 +161,7 @@ html(lang="en")
                         section.tab-content(id="cancer" class="active") 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.
                         section.tab-content(id="scopio") 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.
                         section.tab-content(id="sagittarius") 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.
-                .webgl.content-width
+                .webgl.content-width#webGL
                     h4.title
                         p.title_inner.js-textAnimation
                             | CONTENT5
