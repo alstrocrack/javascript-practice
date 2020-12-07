@@ -1,8 +1,14 @@
+import { add } from './math';
+
 // 読み込んだ時に発火させるもの
 window.addEventListener('load', () => {
     reload();
     new headerBgShow();
 });
+
+const result = add(1, 2);
+console.log(number1);
+
 
 // ロード時にページトップ
 function reload() {
