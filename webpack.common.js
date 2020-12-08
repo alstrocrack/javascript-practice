@@ -1,10 +1,29 @@
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     // mode: 'development',
-    entry: './src/scripts/main.js',
+    entry: {
+        main: './src/scripts/main.js',
+        another: './src/scripts/math.js',
+    },
     output: {
         path: path.resolve(__dirname, 'dist/scripts'),
-        filename: 'main.js',
+        filename: '[name].js',
     },
+    plugins: [
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: ['*.js'], // ワイルドカード
+        }),
+        // new HtmlWebpackPlugin({
+        //     template: '.src/html/index.html',
+        //     chunks: ['main'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: 'another.html',
+        //     template: '.src/html/another.html',
+        //     chunks: ['another'],
+        // }),
+    ],
 };

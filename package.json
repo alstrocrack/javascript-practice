@@ -4,6 +4,7 @@
   "description": "node 10.13.0\r npm 6.9.0",
   "main": "index.js",
   "scripts": {
+    "start": "webpack serve --config webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
@@ -23,6 +24,7 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "browser-sync": "^2.26.12",
+    "clean-webpack-plugin": "^3.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-babel": "^8.0.0",
@@ -34,6 +36,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-svgmin": "^3.0.0",
+    "html-webpack-plugin": "^4.5.0",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-jpeg-recompress": "^7.0.0",
     "imagemin-pngquant": "^9.0.1",
@@ -41,6 +44,7 @@
     "terser-webpack-plugin": "^5.0.3",
     "webpack": "^5.10.0",
     "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.4.0"
   },
   "dependencies": {
