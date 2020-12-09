@@ -6,11 +6,18 @@ module.exports = {
     // mode: 'development',
     entry: {
         main: './src/scripts/main.js',
-        another: './src/scripts/math.js',
+        vendor: '.src/scripts/three.min.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist/scripts'),
         filename: '[name].js',
+        chunkFilename: 'js/[name].js',
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'initial',
+            name: 'vendor',
+        },
     },
     plugins: [
         new CleanWebpackPlugin({
