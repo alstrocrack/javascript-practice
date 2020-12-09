@@ -5,8 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     // mode: 'development',
     entry: {
-        main: './src/scripts/main.js',
-        vendor: '.src/scripts/three.min.js',
+        // main: './src/scripts/main.js',
+        vendor: '.src/scripts/vendor/three/three.min.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist/scripts'),
@@ -21,7 +21,7 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: ['*.js'], // ワイルドカード
+            cleanOnceBeforeBuildPatterns: ['**/*.js'], // ワイルドカード
         }),
         // new HtmlWebpackPlugin({
         //     template: '.src/html/index.html',

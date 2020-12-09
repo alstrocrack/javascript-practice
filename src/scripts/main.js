@@ -1,4 +1,5 @@
 import { add } from './math';
+import Swiper from '../scripts/vendor/swiper';
 
 // 読み込んだ時に発火させるもの
 window.addEventListener('load', () => {
