@@ -43,19 +43,61 @@ $media-sp: 'only screen and (max-width: #{$breakpoint - 1px})';
 $media-pc: 'only screen and (min-width: #{$breakpoint})';
 
 /// @group media query
+@mixin media-pc{
+    @media #{$media-pc}{
+        @content;
+    }
+}
+/// @group media query
 @mixin media-sp{
     @media #{$media-sp}{
         @content;
     }
 }
 
-/// @group media query
-@mixin media-pc{
-    @media #{$media-pc}{
-        @content;
-    }
-}
+// psdファイルの横幅
+$pc-base-width: 1600px;
+$pc-base-small-width: 1600px;
+$sp-base-width: 828px;
 
+// 単位の削除
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+    @return $number;
+}
+//or
+// 単位の削除
+// @function remove-unit($number) {
+//     @if type-of($number) != number {
+//         @error "#{ number } is not a number.";
+
+//         @return false;
+//     }
+//     @return $number / ($number * 0 + 1);
+// }
+
+/// @group size
+// 標準的なPCサイズ
+@function size-responsive-pc($size) {
+    @return strip-unit($size) / strip-unit($pc-base-width) * 100vw;
+}
+/// @group size
+// やや小さめなPCサイズ
+@function size-responsive-pc-s($size) {
+    @return strip-unit($size) / strip-unit($pc-base-small-width) * 100vw;
+}
+/// @group size
+// やや大きめなPCサイズ
+@function size-responsive-pc-l($size) {
+    @return $size * 1.25px;
+}
+/// @group size
+// 標準的なSPサイズ
+@function size-responsive-sp($size) {
+    @return strip-unit($size) / strip-unit($sp-base-width) * 100vw;
+}
 .content-width{
     @include media-pc{
         width: 1080px;
@@ -66,3 +108,118 @@ $media-pc: 'only screen and (min-width: #{$breakpoint})';
         margin: 0 auto;
     }
 }
+
+
+
+//■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 以下、手本コード ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■//
+// @import 'sass';
+
+//
+// size
+//
+
+// /// @param {Number(any)} $number - 指定サイズ
+// /// @group size
+// @function pc-window-w-ratio($val) {
+// @return remove-unit($val) / remove-unit($base-width-pc) * 100vw;
+// }
+// /// @param {Number(any)} $number - 指定サイズ
+// /// @group size
+// @function pc-window-h-ratio($val) {
+// @return remove-unit($val) / remove-unit($base-height) * 100vh;
+// }
+// /// @param {Number(any)} $number - 指定サイズ
+// /// @group size
+// @function pc-window-w-ratio-min($val) {
+// @return remove-unit($val) / remove-unit($base-width-min) * 100vw;
+// }
+// /// @param {Number(any)} $number - 指定サイズ
+// /// @group size
+// @function pc-window-h-ratio-min($val) {
+// @return remove-unit($val) / remove-unit($base-height-min) * 100vh;
+// }
+
+// /// @param {Number(any)} $number - 指定サイズ
+// /// @group size
+// @function sp-px($val) {
+// @return remove-unit($val) / 2 * 1px;
+// }
+
+// /// @param {Number(any)} $number - 指定サイズ
+// /// @group size
+// @function sp-window-w-ratio($val) {
+// @return remove-unit($val) / remove-unit($base-width-sp) * 100vw;
+// }
+// /// @param {Number(any)} $number - 指定サイズ
+// /// @group size
+// @function sp-window-h-ratio($val) {
+// @return remove-unit($val) / remove-unit($base-height-sp) * 100vh;
+// }
+// /// @param {Number(any)} $number - 指定サイズ
+// /// @group size
+// @function sp-window-h-ratio-modal($val) {
+// @return remove-unit($val) / remove-unit($base-height-modal-sp) * 100vh;
+// }
+
+// /// @param {Number(any)} $number - 指定サイズ
+// /// @group size
+// @function sp-land-window-w-ratio($val) {
+// @return remove-unit($val) / remove-unit($base-width-sp-land) * 100vw;
+// }
+// /// @param {Number(any)} $number - 指定サイズ
+// /// @group size
+// @function sp-land-window-h-ratio($val) {
+// @return remove-unit($val) / remove-unit($base-height-sp-land) * 100vw;
+// }
+
+// /// @group size
+// @function size-variable-pc-s($size) {
+// @return remove-unit($size) / remove-unit($base-width-min) * 100vw;
+// }
+
+// /// htmlタグのフォントサイズを基準とした相対的なサイズ
+// /// （html タグのフォントサイズがウィンドウ幅に応じて可変の場合のみ、この値も可変となる）
+// ///
+// /// @param {Number(px)} $size - デザイン上のpx値サイズ
+// /// @return {Number(rem)} - htmlタグのフォントサイズを基準とした相対的なサイズ
+// /// @group size
+// @function size-variable-pc($size) {
+// @return remove-unit($size) / remove-unit($font-size-html-px) * 1rem;
+// }
+
+// /// htmlタグのフォントサイズを基準とした相対的なサイズ
+// /// （html タグのフォントサイズがウィンドウ幅に応じて可変の場合のみ、この値も可変となる）
+// ///
+// /// @param {Number(px)} $size - デザイン上のpx値サイズ
+// /// @return {Number(rem)} - htmlタグのフォントサイズを基準とした相対的なサイズ
+// /// @group size
+// @function size-variable-pc-l($size) {
+// @return $size * 1.25px;
+// }
+
+// /// ウィンドウ幅に応じた可変サイズ (PC)
+// ///
+// /// @param {Number(px)} $size - デザイン上のpx値サイズ
+// /// @return {Number(rem)} - ウィンドウ幅に応じた可変サイズ
+// /// @group size
+// @function size-viewport-pc($size) {
+// @return remove-unit($size) / remove-unit($base-width-pc) * 100vw;
+// }
+
+// /// htmlタグのフォントサイズを基準とした相対的なサイズ (SP)
+// /// （html タグのフォントサイズがウィンドウ幅に応じて可変の場合のみ、この値も可変となる）
+// ///
+// /// @param {Number(px)} $size - デザイン上のpx値サイズ
+// /// @return {Number(rem)} - htmlタグのフォントサイズを基準とした相対的なサイズ
+// /// @group size
+// @function size-variable-sp($size) {
+// @return remove-unit($size) / remove-unit($font-size-html-px-sp) * 1rem;
+// }
+
+// /// ウィンドウ幅に応じた可変サイズ (SP)
+// ///
+// /// @param {Number(px)} $size - デザイン上のpx値サイズ
+// /// @return {Number(rem)} - ウィンドウ幅に応じた可変サイズ
+// /// @group size
+// @function size-viewport-sp($size) {
+// @return remove-unit($size) / remove-unit($base-width-sp) * 100vw;
