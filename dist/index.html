@@ -1,12 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN">
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Javascript-Practice</title>
     <link rel="stylesheet" href="styles/style.css"/>
     <link rel="stylesheet" href="assets/js/libs/swiper/swiper.min.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lateef&amp;family=Roboto:wght@100&amp;display=swap" rel="stylesheet"/>
     <script src="assets/js/libs/pace/pace.js"></script>
     <script src="assets/js/libs/three/three.min.js"></script>
     <script src="assets/js/libs/dat/dat.gui.min.js"></script>
@@ -42,11 +44,11 @@
             </div>
           </div>
           <div class="kv-text"> 
-            <h2 class="kv-text_content">Site</h2>
+            <h2 class="kv-text_content">My WebSite!!</h2>
             <p class="scroll"></p>
           </div>
         </div>
-        <div class="global-menu">
+        <div class="global-menu content-width">
           <ul class="global-menu_inner">
             <li class="global-menu-list"><a class="js-anchor" href="/" data-target="contents">CONTENT1</a></li>
             <li class="global-menu-list"><a class="js-anchor" href="/" data-target="carousel">CONTENT2</a></li>
@@ -145,6 +147,24 @@
               <p class="accordion-inner-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ex at consequuntur fugit repudiandae perferendis iure vero provident. Ex error animi quas repudiandae molestiae quisquam voluptates illo beatae saepe ad.</p>
             </div>
           </div>
+          <div class="accordion-item js-accordion">
+            <div class="accordion-trigger js-trigger">
+              <h5 class="accordion-trigger_text">Aquarius</h5>
+              <div class="accordion-trigger_icon plus"><img class="plus-icon" src="assets/images/b-plus_icon.svg" alt=""/><img class="minus-icon" src="assets/images/b-minus_icon.svg" alt=""/></div>
+            </div>
+            <div class="accordion-inner js-draw">
+              <p class="accordion-inner-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ex at consequuntur fugit repudiandae perferendis iure vero provident. Ex error animi quas repudiandae molestiae quisquam voluptates illo beatae saepe ad.</p>
+            </div>
+          </div>
+          <div class="accordion-item js-accordion">
+            <div class="accordion-trigger js-trigger">
+              <h5 class="accordion-trigger_text">Pisces</h5>
+              <div class="accordion-trigger_icon plus"><img class="plus-icon" src="assets/images/b-plus_icon.svg" alt=""/><img class="minus-icon" src="assets/images/b-minus_icon.svg" alt=""/></div>
+            </div>
+            <div class="accordion-inner js-draw">
+              <p class="accordion-inner-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ex at consequuntur fugit repudiandae perferendis iure vero provident. Ex error animi quas repudiandae molestiae quisquam voluptates illo beatae saepe ad.</p>
+            </div>
+          </div>
         </div>
         <div class="tab content-width" id="tab">
           <h4 class="title">
@@ -156,9 +176,18 @@
               <li class="tab-menu_item" data-id="scopio">Scorpio</li>
               <li class="tab-menu_item" data-id="sagittarius">Sagittarius</li>
             </ul>
-            <section class="tab-content active" id="cancer">1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.</section>
-            <section class="tab-content" id="scopio">2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.</section>
-            <section class="tab-content" id="sagittarius">3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.</section>
+            <section class="tab-content active" id="cancer">
+              <h5>cancer</h5>
+              <p>1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.</p>
+            </section>
+            <section class="tab-content" id="scopio">
+              <h5>scopio</h5>
+              <p>2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.</p>
+            </section>
+            <section class="tab-content" id="sagittarius">
+              <h5>sagittarius</h5>
+              <p>3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.</p>
+            </section>
           </div>
         </div>
         <div class="webgl content-width" id="webGL">
@@ -168,6 +197,9 @@
           <canvas class="webgl_inner" id="webglCanvas"></canvas>
         </div>
       </main>
+      <footer class="footer">
+        <p class="small">&copy; 2020 urushi All Rights Reserved</p>
+      </footer>
       <aside class="toTop">
         <div class="toTop_core">
           <div class="toTop_image"><img src="assets/images/b-toTop_icon.svg" alt=""/></div>

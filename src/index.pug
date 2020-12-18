@@ -1,12 +1,14 @@
 doctype html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN"
-html(lang="en")
+html(lang="ja")
     head
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         title Javascript-Practice
         link(rel="stylesheet" href="styles/style.css")
         link(rel="stylesheet" href="assets/js/libs/swiper/swiper.min.css")
-        link(href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet")
+        link(rel="preconnect" href="https://fonts.gstatic.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com")
+        link(href="https://fonts.googleapis.com/css2?family=Lateef&family=Roboto:wght@100&display=swap" rel="stylesheet")
         script(src="assets/js/libs/pace/pace.js")
         script(src="assets/js/libs/three/three.min.js")
         script(src="assets/js/libs/dat/dat.gui.min.js")
@@ -49,9 +51,9 @@ html(lang="en")
                                 .kv-img
                                     img(src="assets/images/b-kv-image3.jpg", alt="")
                     .kv-text 
-                        h2.kv-text_content Site
+                        h2.kv-text_content My WebSite!!
                         p.scroll
-                .global-menu
+                .global-menu.content-width
                     ul.global-menu_inner
                         li.global-menu-list
                             a(href="/", data-target="contents").js-anchor CONTENT1
@@ -147,6 +149,22 @@ html(lang="en")
                                 img(src="assets/images/b-minus_icon.svg", alt="", class="minus-icon")
                         .accordion-inner.js-draw
                             p.accordion-inner-text Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ex at consequuntur fugit repudiandae perferendis iure vero provident. Ex error animi quas repudiandae molestiae quisquam voluptates illo beatae saepe ad.
+                    .accordion-item.js-accordion
+                        .accordion-trigger.js-trigger
+                            h5.accordion-trigger_text Aquarius
+                            .accordion-trigger_icon.plus
+                                img(src="assets/images/b-plus_icon.svg", alt="", class="plus-icon")
+                                img(src="assets/images/b-minus_icon.svg", alt="", class="minus-icon")
+                        .accordion-inner.js-draw
+                            p.accordion-inner-text Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ex at consequuntur fugit repudiandae perferendis iure vero provident. Ex error animi quas repudiandae molestiae quisquam voluptates illo beatae saepe ad.
+                    .accordion-item.js-accordion
+                        .accordion-trigger.js-trigger
+                            h5.accordion-trigger_text Pisces
+                            .accordion-trigger_icon.plus
+                                img(src="assets/images/b-plus_icon.svg", alt="", class="plus-icon")
+                                img(src="assets/images/b-minus_icon.svg", alt="", class="minus-icon")
+                        .accordion-inner.js-draw
+                            p.accordion-inner-text Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ex at consequuntur fugit repudiandae perferendis iure vero provident. Ex error animi quas repudiandae molestiae quisquam voluptates illo beatae saepe ad.
                 .tab.content-width#tab
                     h4.title
                         p.title_inner.js-textAnimation
@@ -158,9 +176,15 @@ html(lang="en")
                             li.tab-menu_item(data-id="cancer" class="active") Cancer
                             li.tab-menu_item(data-id="scopio") Scorpio
                             li.tab-menu_item(data-id="sagittarius") Sagittarius
-                        section.tab-content(id="cancer" class="active") 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.
-                        section.tab-content(id="scopio") 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.
-                        section.tab-content(id="sagittarius") 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.
+                        section.tab-content(id="cancer" class="active")
+                            h5 cancer
+                            p 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.
+                        section.tab-content(id="scopio")
+                            h5 scopio
+                            p 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.
+                        section.tab-content(id="sagittarius")
+                            h5 sagittarius
+                            p 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et eros auctor, rutrum nibh eu, tincidunt lectus. Curabitur molestie lacus in lectus hendrerit, in molestie nisl lobortis. Mauris non sem in velit ultrices rutrum. Integer posuere ornare felis sit amet condimentum. Ut interdum semper quam, vitae sollicitudin erat vehicula mollis. Maecenas tincidunt eu ligula in dapibus. Nulla dolor massa, eleifend id felis placerat, aliquam aliquam est. Suspendisse potenti. Integer porta dui est, vitae egestas nisi fringilla ac. Mauris vitae risus nunc. Pellentesque faucibus ipsum augue, eget blandit turpis mollis id.
                 .webgl.content-width#webGL
                     h4.title
                         p.title_inner.js-textAnimation
@@ -168,6 +192,8 @@ html(lang="en")
                         span.small-title.js-textAnimation
                             | webGL
                     canvas.webgl_inner#webglCanvas
+            footer.footer
+                p.small &copy; 2020 urushi All Rights Reserved
             aside.toTop
                 div.toTop_core
                     .toTop_image

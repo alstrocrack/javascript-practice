@@ -369,38 +369,62 @@ acoInit();
 /////////////////////////////////////// WebGL ///////////////////////////////////
 // サイズの指定
 {
-    const width = 960;
-    const height = 540;
+    function init(){
+        const width = 1080;
+        const height = 500;
 
-    // レンダラーを作成
-    let renderer = new THREE.WebGLRenderer({
-        canvas: document.querySelector('#webglCanvas')
-    });
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(width, height);
+        let rot = 0;
 
-    // シーンを作成
-    let scene = new THREE.Scene();
+        const scene = new THREE.Scene();
 
-    // カメラを作成
-    let camera = new THREE.PerspectiveCamera( 45, width / height );
-    camera.position.set(0, 0, +1000);
+        const camera = new THREE.PerspectiveCamera(45, width / height, 1, 2000);
+        camera.position.set(0, 0, 1000);	
+        
+        starField();
+        function starField(){
+            const geometry = new THREE.Geometry();
+            const SIZE = 3000;
+            const LENGTH = 20000;
+            for (let i = 0; i < LENGTH; i++){
+                geometry.vertices.push(
+                    new THREE.Vector3(
+                    SIZE * (Math.random() - 0.5),
+                SIZE * (Math.random() - 0.5),
+                SIZE * (Math.random() - 0.5)
+                )
+                );
+            }
+            const material = new THREE.PointsMaterial({
+                color: '0xffffff',
+                size: 5
+            });
+            const mesh = new THREE.Points(geometry, material);
+            scene.add(mesh);
+        }
 
-    // 箱を作成
-    let geometry = new THREE.BoxGeometry(400, 400, 400);
-    let material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
-    let cube = new THREE.Mesh( geometry, material );
-    scene.add( cube );
+        const renderer = new THREE.WebGLRenderer({
+            canvas: document.querySelector('#webglCanvas'),
+            antialias: true
+        });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(width, height);
 
-    // 毎フレーム実行されるループイベント
-    let animate = function () {
-        requestAnimationFrame( animate );
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
-        renderer.render( scene, camera );
-    };
-    animate();
+        tick();
 
+        function tick(){
+            rot += 0.1;
+            
+            const radian = (rot * Math.PI) / 180;
+            camera.position.x = Math.sin(radian) * 2000;
+            camera.position.z = Math.cos(radian) * 1000;
+            camera.lookAt(new THREE.Vector3(0, 0, 0));
+            
+            renderer.render(scene, camera);
+            
+            requestAnimationFrame(tick);
+        }
+    }
+    init();
 
 let gui = new dat.GUI();
 let params = {
@@ -538,7 +562,7 @@ class Anchor {
         this.triggers = document.querySelectorAll(".js-anchor");
         // this.target = document.getElementById('tab');s
         // this.targetPosition = this.target.getBoundingClientRect().top;
-        this.gap = 250;
+        this.gap = 100;
         this.smoothScroll();
         console.log(this.targetPosition);
     }

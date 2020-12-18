@@ -1,4 +1,5 @@
 @import 'modules/config';
+@import url('https://fonts.googleapis.com/css2?family=Lateef&display=swap');
 
 // loading
 #global-container{
@@ -117,7 +118,6 @@ body {
 
 //--------------- header -------------------------
 .header{
-    padding: 10px 25px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -127,14 +127,21 @@ body {
     left: 0;
     right: 0;
     z-index: 10;
-    // border-bottom: 1px solid red;
+    @include media-pc{
+        padding: size-responsive-pc(20) size-responsive-pc(35);
+    }
+    @include media-sp{
+        padding: size-responsive-sp(30);
+    }
     &-title{
         display: flex;
         align-items: center;
         opacity: 0;
         transform: translateY(30px);
         &_image{
-            width: 50px;
+            @include media-pc{
+                width: size-responsive-pc(55);
+            }
             & > img{
                 width: 100%;
                 object-fit: cover;
@@ -144,18 +151,24 @@ body {
     &-list{
         list-style: none;
         @include media-pc() {
-            padding-bottom: 25px;
             display: flex;
         }
         @include media-sp() {
             display: none;
         }
         &_item{
-            margin-right: 40px;
+            @include media-pc{
+                &:not(:last-child){
+                    margin-right: size-responsive-pc(40);
+                }
+            }
             & > a{
                 color: #fff;
                 font-weight: 600;
-                font-size: 20px;
+                font-family: 'Roboto', sans-serif;
+                @include media-pc{
+                    font-size: size-responsive-pc(25);
+                }
             }
             &:last-child{
                 margin-right: 0;
@@ -185,31 +198,34 @@ body {
 //--------------- main -------------------------
 .main{
     //--------------- mouse stalker -------------------------
-    #mouse-stalker{
-        pointer-events: none;
-        position: fixed;
-        top: -8px;
-        left: -8px;
-        width: 16px;
-        height: 16px;
-        background-color: #ffff80;
-        border-radius: 50%;
-        transform: translate(0, 0);
-        transition: transform 0.2s;
-        transition-timing-function: ease-out;
-        z-index: 999;
-    }
+    // #mouse-stalker{
+    //     pointer-events: none;
+    //     position: fixed;
+    //     top: -8px;
+    //     left: -8px;
+    //     width: 16px;
+    //     height: 16px;
+    //     background-color: #ffff80;
+    //     border-radius: 50%;
+    //     transform: translate(0, 0);
+    //     transition: transform 0.2s;
+    //     transition-timing-function: ease-out;
+    //     z-index: 999;
+    // }
     //--------------- KV -------------------------
     .kv{
         position: relative;
-        margin-bottom: 130px;
-        // padding-top: 118px;
         overflow: hidden;
         pointer-events: none;
         user-select: none;
+        @include media-pc{
+            margin-bottom: size-responsive-pc(130);
+        }
         .swiper-container {
             width: 100vw;
-            height: 700px;
+            @include media-pc{
+                height: size-responsive-pc(700);
+            }
         }
         &-img{
             width: 100vw;
@@ -226,24 +242,32 @@ body {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: size-responsive-pc(40);
             color: #fff;
+            font-family: 'Lateef', cursive;
+            @include media-pc{
+                font-size: size-responsive-pc(60);
+            }
         }
     }
+    //--------------- global-menu -------------------------
     .global-menu{
         background-color: #eb9797;
-        width: 70vw;
-        margin: 0 auto 200px;
+        @include media-pc{
+            margin: 0 auto size-responsive-pc(150);
+        }
         &_inner {
-            padding: 20px;
             list-style: none;
             display: flex;
             justify-content: space-around;
+            @include media-pc{
+                padding: size-responsive-pc(20);
+            }
         }
         &-list {
             & > a{
                 color: #fff;
                 font-weight: 600;
+                font-family: 'Roboto', sans-serif;
             }
         }
     }
@@ -251,12 +275,12 @@ body {
     .contents{
         &-core{
             @include media-pc{
-                margin-bottom: 150px;
+                margin-bottom: size-responsive-pc(150);
                 width: 100%;
             }
             @include media-sp{
                 width: 85%;
-                margin: 0 auto 150px;
+                margin: 0 auto size-responsive-sp(150);
             }
         }
         &-each{
@@ -265,7 +289,7 @@ body {
             }
             @include media-pc{
                 &:not(:last-child){
-                    margin-bottom: 150px;
+                    margin-bottom: size-responsive-pc(100);
                 }
                 &:nth-of-type(2){
                     .contents-each_image{
@@ -288,7 +312,7 @@ body {
             }
             &_image{
                 @include media-pc{
-                    width: 500px;
+                    width: 550px;
                 }
                 @include media-sp{
                     width: 100%;
@@ -303,7 +327,7 @@ body {
             }
             &_text{
                 @include media-pc{
-                    width: 500px;
+                    width: 520px;
                 }
                 @include media-sp{
                     width: 100%;
@@ -324,11 +348,13 @@ body {
     }
     //--------------- carousel -------------------------
     .carousel{
+        @include media-pc{
+            margin-bottom: size-responsive-pc(150);
+        }
         .title {
             width: 1080px;
             margin: 0 auto 50px;
         }
-        margin-bottom: 150px;
         .swiper-container {
             @include media-pc{
                 width: 100%;
@@ -399,6 +425,9 @@ body {
             display: flex;
             justify-content: center;
             margin-top: 30px;
+            font-weight: 600;
+            color: $theme-color;
+            font-family: 'Roboto', sans-serif;
             .current-page-number,
             .all-page-number,
             .slash{
@@ -420,11 +449,12 @@ body {
     }
     //--------------- accordion -------------------------
     .accordion{
-        margin-bottom: 150px;
-        width: 70vw;
+        @include media-pc{
+            margin-bottom: size-responsive-pc(150);
+        }
         &-trigger{
             width: 100%;
-            height: 80px;
+            height: 60px;
             background-color: $theme-color;
             cursor: pointer;
             display: flex;
@@ -472,6 +502,9 @@ body {
                 padding: 20px;
                 border-left: 2px solid $theme-color;
                 border-right: 2px solid $theme-color;
+                &:last-child {
+                    border-bottom: 2px solid $theme-color;
+                }
             }
         }
     }
@@ -484,13 +517,20 @@ body {
             margin: 0;
             display: flex;
             &_item{
-                border-top: 1px solid $theme-color;
-                border-left: 1px solid $theme-color;
-                border-right: 1px solid $theme-color;
                 background-color: #fff;
-                padding: 2px 5px;
+                padding: 4px 7px;
                 border-radius: 5px 5px 0 0;
+                color: #fff;
                 cursor: pointer;
+                &:first-child {
+                    background-color: $theme-color;
+                }
+                &:nth-child(2) {
+                    background-color: #87cefa;
+                }
+                &:last-child {
+                    background-color: #90ee90;
+                }
                 &.active {
                     position: relative;
                     &::after {
@@ -508,12 +548,20 @@ body {
         }
         &-content {
             display: none;
+            & > h5 {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            & > p {
+                &::first-letter{
+                    font-size: 30px;
+                }
+            }
             &.active {
                 padding: 20px;
                 min-height: 200px;
                 display: block;
                 background-color: #fff;
-                border: 1px solid $theme-color;
             }
         }
     }
@@ -528,7 +576,18 @@ body {
     }
 }
 //--------------- main -------------------------
-
+.footer {
+    @include media-pc{
+        padding: size-responsive-pc(20);
+    }
+    width: 100vw;
+    background-color: $theme-color;
+    .small {
+        text-align: center;
+        color: #fff;
+        font-size: 12px;
+    }
+}
 .toTop{
     @include media-pc{
         display: block;

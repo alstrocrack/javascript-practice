@@ -16,23 +16,6 @@ a{
     cursor: pointer;
 }
 
-.title{
-    font-size: 30px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px;
-    .js-textAnimation {
-        & > .char {
-            opacity: 0;
-            display: inline-block;
-        }
-    }
-    .small-title{
-        display: inline-block;
-        margin-left: 10px;
-        font-size: 20px;
-    }
-}
 
 $theme-color: rgb(223, 86, 86);
 $breakpoint: 768px;
@@ -100,12 +83,33 @@ $sp-base-width: 828px;
 }
 .content-width{
     @include media-pc{
-        width: 1080px;
+        width: 1120px;
         margin: 0 auto;
     }
     @include media-sp{
         width: 85%;
         margin: 0 auto;
+    }
+}
+
+.title{
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    @include media-pc{
+        margin-bottom: size-responsive-pc(60);
+        font-size: 35px;
+    }
+    .js-textAnimation {
+        & > .char {
+            opacity: 0;
+            display: inline-block;
+        }
+    }
+    .small-title{
+        display: inline-block;
+        margin-left: 10px;
+        font-size: 20px;
     }
 }
 
