@@ -142,6 +142,9 @@ body {
             @include media-pc{
                 width: size-responsive-pc(55);
             }
+            @include media-sp{
+                width: size-responsive-sp(80);
+            }
             & > img{
                 width: 100%;
                 object-fit: cover;
@@ -226,6 +229,9 @@ body {
             @include media-pc{
                 height: size-responsive-pc(700);
             }
+            @include media-sp{
+                height: 100vh;
+            }
         }
         &-img{
             width: 100vw;
@@ -247,6 +253,10 @@ body {
             @include media-pc{
                 font-size: size-responsive-pc(60);
             }
+            @include media-sp{
+                font-size: size-responsive-sp(70);
+                text-align: center;
+            }
         }
     }
     //--------------- global-menu -------------------------
@@ -255,6 +265,10 @@ body {
         @include media-pc{
             margin: 0 auto size-responsive-pc(150);
         }
+        @include media-sp{
+            width: 80vw;
+            margin: size-responsive-sp(100) auto;
+        }
         &_inner {
             list-style: none;
             display: flex;
@@ -262,25 +276,30 @@ body {
             @include media-pc{
                 padding: size-responsive-pc(20);
             }
+            @include media-sp{
+                padding: size-responsive-sp(20);
+            }
         }
         &-list {
             & > a{
                 color: #fff;
                 font-weight: 600;
                 font-family: 'Roboto', sans-serif;
+                @include media-sp{
+                    font-size: size-responsive-sp(20);
+                }
             }
         }
     }
     //--------------- contents -------------------------
     .contents{
         &-core{
+            width: 100%;
             @include media-pc{
                 margin-bottom: size-responsive-pc(150);
-                width: 100%;
             }
             @include media-sp{
-                width: 85%;
-                margin: 0 auto size-responsive-sp(150);
+                margin: size-responsive-sp(50) auto size-responsive-sp(150);
             }
         }
         &-each{
@@ -351,9 +370,16 @@ body {
         @include media-pc{
             margin-bottom: size-responsive-pc(150);
         }
+        @include media-sp{
+            margin-bottom: size-responsive-sp(200);
+        }
         .title {
             width: 1080px;
             margin: 0 auto 50px;
+            @include media-sp{
+                width: 85%;
+                margin: 0 auto size-responsive-sp(100);
+            }
         }
         .swiper-container {
             @include media-pc{
@@ -451,6 +477,9 @@ body {
     .accordion{
         @include media-pc{
             margin-bottom: size-responsive-pc(150);
+        }
+        @include media-sp{
+            margin-bottom: size-responsive-sp(200);
         }
         &-trigger{
             width: 100%;
@@ -569,9 +598,14 @@ body {
     .webgl{
         margin-bottom: 150px;
         &_inner{
-            width: 1080px;
-            height: 500px;
             margin: 0 auto;
+            @include media-pc{
+                width: 1080px;
+                height: 500px;
+            }
+            @include media-sp{
+                width: 80vw
+            }
         }
     }
 }

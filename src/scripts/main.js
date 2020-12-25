@@ -2,7 +2,39 @@
 window.addEventListener('load', () => {
     reload();
     new headerBgShow();
+    judgeSp();
 });
+
+
+// SPサイズか判定ロジック
+let isSp;
+function judgeSp() {
+    isSp = window.matchMedia('(max-width: 767px)').matches
+    if(isSp) {
+        console.log('You are facing SmartPhone!');
+    } else {
+        console.log('You are facing PC!');
+    }
+}
+
+// 手本
+// const media = {
+//     isSP: false,
+// };
+
+// const spMedia = window.matchMedia('screen and (max-width: 767px)')
+
+// spMedia.addListener(() => {
+//     media.isSP = spMedia.matches
+// });
+
+// media.isSP = spMedia.matches
+
+// export default media
+// 手本
+
+
+
 
 // ロード時にページトップ
 function reload() {
@@ -370,8 +402,17 @@ acoInit();
 // サイズの指定
 {
     function init(){
-        const width = 1080;
-        const height = 500;
+
+        const width = undefined;
+        const height = undefined;
+
+        if(!isSp) {
+            width = 1080;
+            height = 500;
+        } else {
+            width = 300;
+            height = 200;
+        }
 
         let rot = 0;
 
