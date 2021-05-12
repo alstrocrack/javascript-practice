@@ -20,7 +20,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
-    "browser-sync": "^2.26.12",
+    "browser-sync": "^2.26.14",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-babel": "^8.0.0",
@@ -35,7 +35,7 @@
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-jpeg-recompress": "^7.0.0",
     "imagemin-pngquant": "^9.0.1",
-    "pug": "^3.0.0"
+    "pug": "^3.0.2"
   },
   "dependencies": {
     "gulp-uglify": "^3.0.2"
