@@ -6,8 +6,14 @@
   outline: none;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-  font-family: 'Roboto', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: "Roboto", sans-serif;
 }
 
 a {
@@ -120,7 +126,7 @@ a {
   top: 7px;
   height: 14px;
   font-size: 12px;
-  background: #29d;
+  background-color: #29d;
   color: #29d;
   line-height: 60px;
   font-weight: bold;
@@ -146,7 +152,7 @@ a {
   width: 100%;
   height: 28px;
   z-index: 2001;
-  box-shadow: inset 0 0 0 2px #29d, inset 0 0 0 7px #FFF;
+  box-shadow: inset 0 0 0 2px #29d, inset 0 0 0 7px #fff;
   border-radius: 10px;
 }
 
@@ -235,7 +241,7 @@ body {
 .header-list_item > a {
   color: #fff;
   font-weight: 600;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 @media only screen and (min-width: 768px) {
@@ -318,7 +324,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
-  font-family: 'Lateef', cursive;
+  font-family: "Lateef", cursive;
 }
 
 @media only screen and (min-width: 768px) {
@@ -372,7 +378,7 @@ body {
 .main .global-menu-list > a {
   color: #fff;
   font-weight: 600;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 @media only screen and (max-width: 767px) {
@@ -605,7 +611,7 @@ body {
   margin-top: 30px;
   font-weight: 600;
   color: #df5656;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .main .carousel .swiper-pages .current-page-number,
@@ -748,7 +754,7 @@ body {
 }
 
 .main .tab-menu_item.active::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 1px;
