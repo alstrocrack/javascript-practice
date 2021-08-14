@@ -1,46 +1,41 @@
 # javascript-practice
 
-開発環境について
+"javascript-practice" is a Website for practicing JavaScript.
 
-## versions
+# Requirement
 
-- node 10.13.0
+- Node.js 10.13.0
 - npm 6.9.0
 - gulp
   - CLI version: 2.2.0
   - Local version: 4.0.2
-  
-## languages
-- HTML -> Pug
-- CSS -> Sass
-- JavaScript -> Javascript
 
-## commands
-- `npx gulp`
-→デフォルトのコマンド。sass、pugのコンパイル（ウォッチ）、jsファイルの圧縮とbrowser-syncの開始。
-***スタイルに関しては`_config.scss`を変更しただけではコンパイルが発生しないので、`style.scss`で保存する必要がある。***
+# Installation
+
+Install node_modules.
+
+```bash
+npm i
+```
+
+# Usage
+
+Please start development with a command "npm run dev"
+
+```bash
+npm run dev
+```
+
+# Note
+
+- `npm run dev`
+The default command. Compile sass, pug (watch), compress js files and start browser-sync.<br/>
+***Regarding the style, it is necessary to save it as `style.scss` because compilation does not occur just by changing` _config.scss`.***
 - `npx gulp publish`
-→画像の圧縮を始める。***デフォルトには含まれていないので、このコマンドを実行しないと、`src`ディレクトリに画像をおくだけでは表示されない。***
+Start compressing the image.<br/>
+***It's not included by default, so if you don't run this command, you won't see it just by putting the image in the `src` directory.***
 
-## npm plugins
-```
-@babel/core@7.12.3
-@babel/preset-env@7.12.1
-browser-sync@2.26.12
-gulp@4.0.2
-gulp-autoprefixer@7.0.1
-gulp-babel@8.0.0
-gulp-changed@4.0.2
-gulp-imagemin@7.1.0
-gulp-notify@3.2.0
-gulp-plumber@1.2.1
-gulp-pug@4.0.1
-gulp-rename@2.0.0
-gulp-sass@4.1.0
-gulp-svgmin@3.0.0
-gulp-uglify@3.0.2
-imagemin-gifsicle@7.0.0
-imagemin-jpeg-recompress@7.0.0
-imagemin-pngquant@9.0.1
-pug@3.0.0
-```
+# Author
+
+* Yuto Urushima
+* Twitter : https://twitter.com/developer_japan
